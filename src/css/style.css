@@ -310,6 +310,25 @@ body, html {
     position: relative;
     bottom: 30px;
     color: var(--dark-grey);
+    align-items: center;
+    gap: 15px;
+}
+
+.quick-browse-bottom .arrow-left,
+.quick-browse-bottom .arrow-right {
+    flex-shrink: 0;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.quick-browse-bottom .arrow-left:hover,
+.quick-browse-bottom .arrow-right:hover {
+    opacity: 1;
+}
+
+.quick-browse-bottom p {
+    margin: 0;
+    font-weight: 500;
 }
 
 /* !!! 'About Us' Section */
