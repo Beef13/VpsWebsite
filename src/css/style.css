@@ -34,20 +34,39 @@ body {
     position: relative;
     z-index: 5;
     
-    /* Disable rubber banding and scroll effects */
-    overscroll-behavior: none;
-    overscroll-behavior-x: none;
-    overscroll-behavior-y: none;
-    -webkit-overflow-scrolling: auto;
-    scroll-behavior: auto;
+    /* Aggressively disable rubber banding and scroll effects */
+    overscroll-behavior: none !important;
+    overscroll-behavior-x: none !important;
+    overscroll-behavior-y: none !important;
+    -webkit-overflow-scrolling: auto !important;
+    scroll-behavior: auto !important;
     
     /* Prevent touch scrolling interference */
-    touch-action: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    touch-action: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    
+    /* Additional scroll prevention */
+    -ms-scroll-chaining: none !important;
+    scroll-snap-type: none !important;
+}
+
+/* Target parent containers to prevent rubber banding */
+.hero-section-wrapper {
+    overscroll-behavior: none !important;
+    overscroll-behavior-x: none !important;
+    overscroll-behavior-y: none !important;
+    -webkit-overflow-scrolling: auto !important;
+}
+
+/* Ensure body and html don't interfere */
+body, html {
+    overscroll-behavior: none !important;
+    overscroll-behavior-x: none !important;
+    overscroll-behavior-y: none !important;
 }
 
 .scroll-track {
@@ -58,12 +77,14 @@ body {
     white-space: nowrap;
     will-change: transform;
     
-    /* Disable scroll effects that could interfere with animation */
-    overscroll-behavior: none;
-    overscroll-behavior-x: none;
-    overscroll-behavior-y: none;
-    -webkit-overflow-scrolling: auto;
-    scroll-behavior: auto;
+    /* Aggressively disable scroll effects that could interfere with animation */
+    overscroll-behavior: none !important;
+    overscroll-behavior-x: none !important;
+    overscroll-behavior-y: none !important;
+    -webkit-overflow-scrolling: auto !important;
+    scroll-behavior: auto !important;
+    -ms-scroll-chaining: none !important;
+    scroll-snap-type: none !important;
 }
 
 .scroll-item {
