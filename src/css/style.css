@@ -318,12 +318,16 @@ body, html {
 .quick-browse-bottom .arrow-right {
     flex-shrink: 0;
     opacity: 0.8;
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 4px;
 }
 
 .quick-browse-bottom .arrow-left:hover,
 .quick-browse-bottom .arrow-right:hover {
     opacity: 1;
+    scale: 1.1;
 }
 
 .quick-browse-bottom p {

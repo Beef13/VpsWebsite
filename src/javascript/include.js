@@ -82,5 +82,52 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.log('Scroll track not found');
     }
+
+    // Quick Browse Products Navigation Arrows
+    console.log('Setting up quick browse navigation arrows...');
+    const leftArrow = document.querySelector('.quick-browse-bottom .arrow-left');
+    const rightArrow = document.querySelector('.quick-browse-bottom .arrow-right');
+    const productsWrapper = document.querySelector('.quick-browse-products-wrapper');
+    
+    if (leftArrow && rightArrow && productsWrapper) {
+        console.log('Navigation arrows and products wrapper found');
+        
+        // Get the width of one item container for incremental scrolling
+        const firstItem = productsWrapper.querySelector('.qbp-container');
+        const itemWidth = firstItem ? firstItem.offsetWidth + 20 : 349; // 329px width + 20px gap
+        
+        // Left arrow - scroll left by one item
+        leftArrow.addEventListener('click', () => {
+            console.log('Left arrow clicked - scrolling left by one item');
+            const currentScrollLeft = productsWrapper.scrollLeft;
+            const newScrollLeft = Math.max(0, currentScrollLeft - itemWidth);
+            
+            productsWrapper.scrollTo({
+                left: newScrollLeft,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Right arrow - scroll right by one item
+        rightArrow.addEventListener('click', () => {
+            console.log('Right arrow clicked - scrolling right by one item');
+            const currentScrollLeft = productsWrapper.scrollLeft;
+            const maxScrollLeft = productsWrapper.scrollWidth - productsWrapper.clientWidth;
+            const newScrollLeft = Math.min(maxScrollLeft, currentScrollLeft + itemWidth);
+            
+            productsWrapper.scrollTo({
+                left: newScrollLeft,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Add cursor pointer to arrows
+        leftArrow.style.cursor = 'pointer';
+        rightArrow.style.cursor = 'pointer';
+        
+        console.log('Quick browse navigation arrows setup complete - incremental scrolling enabled');
+    } else {
+        console.log('Navigation arrows or products wrapper not found');
+    }
 });
 
