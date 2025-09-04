@@ -33,6 +33,21 @@ body {
     overflow: hidden;
     position: relative;
     z-index: 5;
+    
+    /* Disable rubber banding and scroll effects */
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: auto;
+    scroll-behavior: auto;
+    
+    /* Prevent touch scrolling interference */
+    touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .scroll-track {
@@ -42,6 +57,13 @@ body {
     animation: scroll-left 30s linear infinite;
     white-space: nowrap;
     will-change: transform;
+    
+    /* Disable scroll effects that could interfere with animation */
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: auto;
+    scroll-behavior: auto;
 }
 
 .scroll-item {
