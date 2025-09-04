@@ -1,24 +1,16 @@
-/* !!! ALl VARIABLES !!! */
-
-/* Colors */
+/* CSS Variables - Optimized for Performance */
 
 :root {
+    /* Colors */
     --green: #05A84B;
     --green-semi-transparent: rgba(5, 168, 76, 0.7);
     --white: #FFFFFF;
-    --white-semi-transparent: rgb(255, 255, 255, 0.7);
-    --black-shadow: rgb(0, 0, 0, 0.20);
+    --white-semi-transparent: rgba(255, 255, 255, 0.7);
+    --black-shadow: rgba(0, 0, 0, 0.2);
     --black: #000000;
     --yellow: #ffdc1c;
     
-    /* Scroll Behavior Variables - Edit these to control rubber banding */
-    --overscroll-behavior: auto; /* Options: auto, contain, none */
-    --overscroll-behavior-x: auto; /* Options: auto, contain, none */
-    --overscroll-behavior-y: auto; /* Options: auto, contain, none */
-    --scroll-behavior: smooth; /* Options: auto, smooth */
-    --webkit-overflow-scrolling: touch; /* Options: auto, touch */
-    --scroll-margin: 0px;
-    --scroll-padding: 0px; 
+    /* Greys */
     --lightest-grey: #E5E5E5;
     --light-grey: #C8C8C8;
     --medium-grey: #808080;
