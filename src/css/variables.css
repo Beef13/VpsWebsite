@@ -8,6 +8,7 @@
     --white: #FFFFFF;
     --white-semi-transparent: rgb(255, 255, 255, 0.7);
     --black-shadow: rgb(0, 0, 0, 0.20);
+    --black: #000000;
     
     /* Scroll Behavior Variables - Edit these to control rubber banding */
     --overscroll-behavior: auto; /* Options: auto, contain, none */

@@ -240,31 +240,11 @@ body {
     padding-bottom: 60px;
     padding-top: 30px;
     /* border: solid 2px #f50101; */
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: visible;
     /* Scroll bar */
     scrollbar-width: none;       /* Firefox */
     -ms-overflow-style: none;    /* Internet Explorer 10+ */
-}
-
-/* Marquee scroll for Quick Browse Products */
-.quick-browse-products-wrapper {
-    overflow-x: auto; /* Allow manual scrolling */
-    overflow-y: visible;
-    position: relative;
-}
-
-.qbp-track {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: stretch;
-    animation: qbp-marquee 20s linear infinite;
-}
-
-@keyframes qbp-marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 10px)); }
 }
 
 /* Scroll bar edit */

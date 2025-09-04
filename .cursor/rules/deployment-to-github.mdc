@@ -1,0 +1,115 @@
+# VPS Website Deployment Rules
+
+## Repository Information
+- **GitHub URL**: https://github.com/Beef13/VpsWebsite.git
+- **Branch**: main
+- **Project Type**: Static Website (HTML/CSS/JavaScript)
+
+## Git Workflow Commands
+
+### Daily Development Workflow
+```bash
+# Check current status
+git status
+
+# Add all changes
+git add .
+
+# Commit with descriptive message
+git commit -m "Description of changes made"
+
+# Push to GitHub
+git push origin main
+```
+
+### Before Deploying
+1. **Test locally** - Ensure website works in browser
+2. **Check git status** - Review what files have changed
+3. **Review changes** - Use `git diff` to see modifications
+4. **Update .gitignore** if needed
+
+### Deployment Checklist
+- [ ] All changes are working locally
+- [ ] No console errors in browser
+- [ ] Responsive design works on different screen sizes
+- [ ] All links and navigation work correctly
+- [ ] Images and assets are properly linked
+- [ ] CSS animations and interactions work smoothly
+
+## File Organization Rules
+
+### CSS Files
+- Keep styles organized by component/function
+- Use consistent naming conventions
+- Avoid duplicate styles across files
+- Maintain CSS variables in `variables.css`
+
+### JavaScript Files
+- Keep interactive functionality in `include.js`
+- Test all event listeners and animations
+- Ensure smooth performance on scroll events
+
+### Assets
+- Optimize images before committing
+- Use appropriate file formats (SVG for icons, PNG/JPG for photos)
+- Maintain consistent folder structure
+
+## Common Deployment Issues & Solutions
+
+### Force Push (Use with caution)
+```bash
+# Only use when you need to overwrite remote changes
+git push origin main --force
+```
+
+### Pull Latest Changes
+```bash
+# If working on multiple machines
+git pull origin main
+```
+
+### Reset to Last Good State
+```bash
+# If something breaks
+git reset --hard HEAD~1
+```
+
+## Performance Considerations
+- Optimize images for web use
+- Minify CSS/JS for production (if needed)
+- Ensure fast loading times
+- Test on slower connections
+
+## Browser Compatibility
+- Test on Chrome, Firefox, Safari, Edge
+- Ensure mobile responsiveness
+- Check for CSS/JS compatibility issues
+
+## Security Notes
+- Never commit API keys or sensitive data
+- Keep dependencies updated
+- Use HTTPS for external links when possible
+
+## Quick Deploy Command
+```bash
+# One-liner for quick deployment
+git add . && git commit -m "Update website" && git push origin main
+```
+
+## Emergency Rollback
+```bash
+# If deployment breaks the site
+git log --oneline -5  # Find last good commit
+git reset --hard <commit-hash>
+git push origin main --force
+```
+
+## Maintenance
+- Regularly update dependencies
+- Monitor GitHub repository for issues
+- Keep backup of working versions
+- Document major changes in commit messages
+description:
+globs:
+alwaysApply: true
+---

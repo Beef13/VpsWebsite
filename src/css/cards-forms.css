@@ -70,7 +70,7 @@
     text-align: left;
 }
 
-.qbp-card-content button {
+.qbp-button {
     width: 129px;
     height: 34px;
     border: 1px solid #808080;
@@ -85,7 +85,7 @@
     transition: all 0.2s ease-in-out;
 }
 
-.qbp-card-content button:hover {
+.qbp-button:hover {
     background-color: #ffdc1c;
     color: var(--black);
     border: solid 1px black;
