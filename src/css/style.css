@@ -690,7 +690,12 @@ html {
 }
 
 .qbp-container:active {
-    cursor: grabbing;
+    cursor: grabbing !important;
+}
+
+/* Ensure grabbing cursor during drag operations */
+.quick-browse-products-wrapper.dragging .qbp-container {
+    cursor: grabbing !important;
 }
 
 .quick-browse-bottom {
