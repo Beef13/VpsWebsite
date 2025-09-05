@@ -88,7 +88,6 @@ function setupDragToScroll() {
         isDragging = true;
         startX = e.pageX - productsWrapper.offsetLeft;
         startScrollLeft = productsWrapper.scrollLeft;
-        productsWrapper.style.cursor = 'grabbing';
         productsWrapper.style.userSelect = 'none';
     });
     
@@ -102,13 +101,11 @@ function setupDragToScroll() {
     
     productsWrapper.addEventListener('mouseup', () => {
         isDragging = false;
-        productsWrapper.style.cursor = 'grab';
         productsWrapper.style.userSelect = 'auto';
     });
     
     productsWrapper.addEventListener('mouseleave', () => {
         isDragging = false;
-        productsWrapper.style.cursor = 'grab';
         productsWrapper.style.userSelect = 'auto';
     });
     
@@ -129,8 +126,5 @@ function setupDragToScroll() {
     productsWrapper.addEventListener('touchend', () => {
         isDragging = false;
     });
-    
-    // Set initial cursor style
-    productsWrapper.style.cursor = 'grab';
 }
 

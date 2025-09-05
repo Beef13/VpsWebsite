@@ -638,13 +638,6 @@ html {
     
     /* Prevent default touch behaviors */
     touch-action: pan-x;
-    
-    /* Visual feedback for draggable state */
-    cursor: grab;
-}
-
-.quick-browse-products-wrapper:active {
-    cursor: grabbing;
 }
 
 /* Prevent text selection on product items during drag */
@@ -689,6 +682,15 @@ html {
     width: 329px;
     height: 377px;
     overflow: visible;
+    cursor: grab;
+}
+
+.qbp-container:hover {
+    cursor: grab;
+}
+
+.qbp-container:active {
+    cursor: grabbing;
 }
 
 .quick-browse-bottom {
