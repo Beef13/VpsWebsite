@@ -809,40 +809,26 @@ html {
     border-radius: 10px;
     border: solid 1px white;
     box-shadow: 0 -7px 20px var(--black-shadow);
-    z-index: 2;
 }
 
 
 /* !!! 'Our Services' Section */
 
 .our-services-section-wrapper {
-    position: relative; /* so pseudo-element is positioned correctly */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    padding: 30px 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: auto;
     width: 100vw;
     background-color: white;
-    overflow: visible; /* allow bottom image to extend beyond container */
-}
-
-.our-services-section-wrapper::before {
-    content: "";
-    position: absolute;
-    inset: 0; /* covers the full parent */
-    background: url(/src/assets/images/general-site/Melbourne\ Map.png) 
-                no-repeat 100% 80%;
+    /* SVG Background - Edit position and color here */
+    background-image: url(/src/assets/images/general-site/Melbourne\ Map\ 2.png);
+    background-repeat: no-repeat;
+    background-position: 100% 60%; /* EDIT POSITION HERE */
     background-size: 100% auto;
-    opacity: 0.15; /* 🔥 makes background image half transparent */
-    pointer-events: none; /* clicks pass through */
-    z-index: 0;
-    overflow: hidden; /* contain background image within section bounds */
-}
-
-.our-services-section-wrapper > * {
-    position: relative; /* keeps content above background */
-    z-index: 1;
 }
 
 .section-title-wrapper {

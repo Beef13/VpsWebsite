@@ -2,7 +2,7 @@
 
 :root {
     /* Colors */
-    --green: #05A84B;
+    --green: rgb(5, 168, 75);
     --green-semi-transparent: rgba(5, 168, 76, 0.7);
     --white: #FFFFFF;
     --white-semi-transparent: rgba(255, 255, 255, 0.7);
