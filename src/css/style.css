@@ -152,6 +152,11 @@ html {
     color: var(--white);
 }
 
+.hero-call-button {
+    display: none !important;
+    text-decoration: none !important;
+}
+
 /* FORM */
 
 .form {
@@ -163,6 +168,9 @@ html {
     padding: 20px;
     height: 450px;
     width: 350px;
+    min-width: 350px;
+    max-width: 350px;
+    min-height: 450px;
     border-radius: 30px;
     background: rgba(211, 211, 211, 0.6);
     backdrop-filter: blur(10px) saturate(180%);
@@ -850,3 +858,190 @@ html {
     color: var(--dark-grey);
 }
 
+/* Responsive layout for mobile through iPad widths */
+@media screen and (min-width: 320px) and (max-width: 1024px) {
+    body {
+        padding-top: 70px;
+        background-attachment: fixed;
+        min-height: 100vh;
+        min-height: 100dvh;
+        background-size: auto 100vh;
+        background-position: center top;
+    }
+
+    .hero-section-container {
+        padding: 32px 20px 10px;
+        align-items: stretch;
+        gap: 30px;
+    }
+
+    .hero-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+    }
+
+    .hero-top h1 {
+        font-size: clamp(34px, 8vw, 52px);
+        line-height: 1.15;
+    }
+
+    .hero-call-button {
+        display: inline-flex !important;
+        align-self: center;
+    }
+
+    .hero-bottom {
+        flex-direction: column;
+        gap: 16px;
+        position: static;
+        text-align: center;
+    }
+
+    .quick-browse-section-wrapper {
+        padding: 40px 16px 60px;
+    }
+
+    .quick-browse-products-wrapper {
+        width: 100%;
+        padding: 20px 10px 40px;
+    }
+
+    .our-services-section-wrapper {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .qbp-container {
+        width: clamp(240px, 70vw, 320px);
+    }
+
+    .quick-browse-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .about-us-section-wrapper {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        padding: 50px 20px;
+        gap: 32px;
+    }
+
+    .about-us-left-container,
+    .about-us-right-container {
+        width: 100%;
+    }
+
+    .about-us-right-container,
+    .top-image,
+    .bottom-image,
+    .top-image img,
+    .bottom-image img {
+        display: none;
+    }
+
+    .contact-section-wrapper {
+        position: relative;
+        width: 100%;
+        left: 0;
+        top: 0;
+        padding: 32px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        height: auto;
+    }
+
+    .contact-left,
+    .contact-right {
+        position: relative;
+        width: 100%;
+        left: 0;
+        top: 0;
+        height: auto;
+    }
+
+    .contact-left h2,
+    .contact-left .contact-details,
+    .contact-left .contact-image {
+        position: relative;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    .contact-left h2 {
+        text-align: left;
+        margin-bottom: 12px;
+    }
+
+    .contact-left .contact-details {
+        gap: 16px;
+        margin-top: 8px;
+    }
+
+    .contact-left .contact-image {
+        height: 220px;
+        margin-top: 16px;
+    }
+
+    .contact-right {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .contact-right h3,
+    .contact-right label,
+    .contact-right input,
+    .contact-right select,
+    .contact-right textarea,
+    .contact-right button {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .contact-right input,
+    .contact-right select,
+    .contact-right textarea {
+        margin-top: 4px;
+    }
+
+    .contact-right textarea {
+        height: 180px;
+    }
+
+    .contact-right button {
+        align-self: flex-start;
+        margin-top: 10px;
+    }
+
+    .footer-wrapper {
+        position: relative;
+        width: 100%;
+        left: 0;
+        top: 0;
+        height: auto;
+        padding: 40px 20px 60px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 24px;
+        padding: 30px 0 10px;
+    }
+
+    .footer-bottom {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        transform: none;
+        margin-top: 20px;
+    }
+}

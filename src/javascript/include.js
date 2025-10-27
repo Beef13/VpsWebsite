@@ -23,6 +23,9 @@ function loadComponent(elementId, url) {
         })
         .then(data => {
             element.innerHTML = data;
+            if (elementId === 'header') {
+                setupHeaderMenu();
+            }
         })
         .catch(error => {
             console.error(`${elementId} loading error:`, error);
@@ -128,3 +131,46 @@ function setupDragToScroll() {
     });
 }
 
+// Header menu toggle
+function setupHeaderMenu() {
+    const header = document.querySelector('.header-container');
+    if (!header) return;
+
+    const toggle = header.querySelector('.menu-toggle');
+    const overlay = header.querySelector('.nav-overlay');
+    const closeTargets = header.querySelectorAll('.nav-wrapper .nav-button, .nav-wrapper .call-button');
+    const mq = window.matchMedia('(max-width: 1100px)');
+
+    const setState = (isOpen) => {
+        header.classList.toggle('nav-open', isOpen);
+        document.body.classList.toggle('nav-locked', isOpen);
+        if (toggle) {
+            toggle.setAttribute('aria-expanded', String(isOpen));
+        }
+    };
+
+    const closeMenu = () => setState(false);
+
+    toggle?.addEventListener('click', () => {
+        const willOpen = !header.classList.contains('nav-open');
+        setState(willOpen);
+    });
+
+    overlay?.addEventListener('click', closeMenu);
+
+    closeTargets.forEach((target) => {
+        target.addEventListener('click', closeMenu);
+    });
+
+    const handleMqChange = (event) => {
+        if (!event.matches) {
+            closeMenu();
+        }
+    };
+
+    if (mq.addEventListener) {
+        mq.addEventListener('change', handleMqChange);
+    } else if (mq.addListener) {
+        mq.addListener(handleMqChange);
+    }
+}

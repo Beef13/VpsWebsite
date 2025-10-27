@@ -161,3 +161,116 @@
     word-break: keep-all;
     hyphens: none;
 }
+
+/* Menu Toggle */
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 1002;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #0B1D10;
+    border-radius: 999px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-toggle:focus-visible {
+    outline: 2px solid rgba(5, 168, 76, 0.7);
+    outline-offset: 3px;
+}
+
+.nav-overlay {
+    display: none;
+}
+
+body.nav-locked {
+    overflow: hidden;
+}
+
+/* Responsive navigation */
+@media screen and (max-width: 1100px) {
+    .header-container {
+        padding: 0 80px;
+        gap: 12px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-wrapper {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: min(320px, 80vw);
+        height: 100vh;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 18px;
+        padding: 110px 28px 40px;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(25px) saturate(180%);
+        -webkit-backdrop-filter: blur(25px) saturate(180%);
+        box-shadow: -12px 0 30px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1001;
+    }
+
+    .nav-wrapper .nav-button,
+    .nav-wrapper .call-button {
+        width: 100%;
+        text-align: left;
+    }
+
+    .nav-wrapper .call-button {
+        justify-content: center;
+    }
+
+    .nav-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 1000;
+    }
+
+    .header-container.nav-open .nav-wrapper {
+        right: 0;
+    }
+
+    .header-container.nav-open .nav-overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .header-container.nav-open .menu-toggle span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .header-container.nav-open .menu-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .header-container.nav-open .menu-toggle span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
