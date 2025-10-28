@@ -13,9 +13,11 @@
     border: solid 1px var(--light-grey);
     overflow: visible;
     box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: linear-gradient(180deg, #EBEBEB 0%, #F0EEEE 100%);
     cursor: grab;
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
 }
 
 .qbp-card-image {
@@ -28,6 +30,7 @@
     margin: 45px 20px 0 20px;
     transition: filter 0.2s ease-in-out;
     cursor: grab;
+    will-change: filter, transform;
 }
 
 .qbp-card-content {
@@ -47,9 +50,11 @@
     border: 1px solid #D2D2D2;
     background: #FFFFFF;
     z-index: 2;
-    transition: all 0.3s ease;
+    transition: height 0.3s ease, box-shadow 0.3s ease;
     box-sizing: border-box;
     cursor: grab;
+    will-change: height, box-shadow;
+    transform: translateZ(0);
 }
 
 .qbp-card-content p {
@@ -101,6 +106,36 @@
 .qbp-card:hover .qbp-card-content {
     height: 310px;
     box-shadow: 0 -6px 20px -1px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 1024px) {
+    .qbp-card-image {
+        width: calc(100% - 40px);
+        height: auto;
+        aspect-ratio: 290 / 169;
+        margin: 30px 20px 0 20px;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .qbp-card {
+        cursor: default;
+    }
+
+    .qbp-card:hover .qbp-card-image,
+    .qbp-card:active .qbp-card-image {
+        filter: none;
+    }
+
+    .qbp-card:hover .qbp-card-content,
+    .qbp-card:active .qbp-card-content {
+        height: 128px;
+        box-shadow: none;
+    }
+
+    .qbp-button {
+        cursor: pointer;
+    }
 }
 
 /* Chevron animation on hover for expanded cards */

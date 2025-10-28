@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupInfiniteScroll();
     setupQuickBrowseNavigation();
     setupDragToScroll();
+    setupMobileHeroFormModal();
 });
 
 // Component loader with error handling
@@ -173,4 +174,36 @@ function setupHeaderMenu() {
     } else if (mq.addListener) {
         mq.addListener(handleMqChange);
     }
+}
+
+function setupMobileHeroFormModal() {
+    const openButton = document.querySelector('.hero-quote-button');
+    const modal = document.getElementById('heroFormModal');
+    if (!openButton || !modal) return;
+
+    const closeButton = modal.querySelector('.hero-form-modal__close');
+    const content = modal.querySelector('.hero-form-modal__content');
+
+    const toggleModal = (shouldOpen) => {
+        modal.classList.toggle('is-open', shouldOpen);
+        modal.setAttribute('aria-hidden', shouldOpen ? 'false' : 'true');
+        document.body.classList.toggle('modal-open', shouldOpen);
+    };
+
+    const openModal = () => toggleModal(true);
+    const closeModal = () => toggleModal(false);
+
+    openButton.addEventListener('click', openModal);
+    closeButton?.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (event) => {
+        if (!content || content.contains(event.target)) return;
+        closeModal();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
 }
