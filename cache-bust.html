@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPS Cache Test - v2.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: linear-gradient(135deg, #05a84b, #048a5a);
+            color: white;
+            min-height: 100vh;
+        }
+        .test-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .success { color: #4CAF50; }
+        .error { color: #f44336; }
+        .info { color: #2196F3; }
+        .timestamp { font-size: 12px; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <h1>VPS Website - Cache Test v2.1</h1>
+    
+    <div class="test-box">
+        <h2>Cache Status</h2>
+        <p class="success">✅ This page loaded successfully</p>
+        <p class="info">If you see this page, GitHub Pages is working</p>
+        <p class="timestamp">Generated: <span id="timestamp"></span></p>
+    </div>
+    
+    <div class="test-box">
+        <h2>Main Site Test</h2>
+        <p class="info">Testing main site loading...</p>
+        <iframe src="./index.html" width="100%" height="400" style="border: 1px solid rgba(255,255,255,0.3); border-radius: 10px;"></iframe>
+    </div>
+    
+    <div class="test-box">
+        <h2>Asset Loading Test</h2>
+        <p class="info">Testing CSS and JS loading...</p>
+        <div id="asset-test">Loading...</div>
+    </div>
+    
+    <div class="test-box">
+        <h2>Cache Clearing Instructions</h2>
+        <p class="info">If the main site doesn't look right:</p>
+        <ul>
+            <li>Press <strong>Ctrl+F5</strong> (Windows) or <strong>Cmd+Shift+R</strong> (Mac)</li>
+            <li>Or clear browser cache manually</li>
+            <li>Or try incognito/private browsing mode</li>
+        </ul>
+    </div>
+
+    <script>
+        // Update timestamp
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+        
+        // Test asset loading
+        function testAssets() {
+            const testDiv = document.getElementById('asset-test');
+            
+            // Test CSS
+            const testCSS = document.createElement('div');
+            testCSS.style.position = 'absolute';
+            testCSS.style.left = '-9999px';
+            testCSS.style.width = '100px';
+            testCSS.style.height = '100px';
+            testCSS.style.background = 'linear-gradient(45deg, #05a84b, #048a5a)';
+            document.body.appendChild(testCSS);
+            
+            const computedStyle = window.getComputedStyle(testCSS);
+            const cssWorking = computedStyle.background.includes('linear-gradient');
+            document.body.removeChild(testCSS);
+            
+            // Test JS
+            const jsWorking = typeof window.addEventListener === 'function';
+            
+            testDiv.innerHTML = `
+                <p class="${cssWorking ? 'success' : 'error'}">CSS: ${cssWorking ? 'Working' : 'Not Working'}</p>
+                <p class="${jsWorking ? 'success' : 'error'}">JavaScript: ${jsWorking ? 'Working' : 'Not Working'}</p>
+                <p class="info">Current URL: ${window.location.href}</p>
+            `;
+        }
+        
+        // Run tests
+        window.addEventListener('load', testAssets);
+    </script>
+</body>
+</html>
