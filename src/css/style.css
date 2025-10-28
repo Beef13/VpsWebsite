@@ -6,6 +6,49 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     padding-top: 70px; /* Account for fixed header height */
+    
+    /* Ensure consistent background behavior across all browsers */
+    background-origin: padding-box;
+    background-clip: border-box;
+    min-height: 100vh;
+    
+    /* Fallback for browsers that don't support background-attachment: fixed */
+    -webkit-background-attachment: fixed;
+    -moz-background-attachment: fixed;
+    -o-background-attachment: fixed;
+}
+
+/* Mobile-specific background handling */
+@media screen and (max-width: 768px) {
+    body {
+        /* On mobile, use scroll instead of fixed to prevent issues */
+        background-attachment: scroll;
+        -webkit-background-attachment: scroll;
+        -moz-background-attachment: scroll;
+        -o-background-attachment: scroll;
+    }
+}
+
+/* Fallback for browsers that don't support background-attachment: fixed */
+@supports not (background-attachment: fixed) {
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../assets/images/general-site/forrest1.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1;
+        pointer-events: none;
+    }
+    
+    body {
+        background-image: none;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1077,7 +1120,8 @@ body.modal-open {
     }
 
     .section-title-wrapper .section-subtitle::after {
-        content: "Swipe through our range of products, tap to expand";
+        content: "Swipe through our range of products,\A tap to expand for details";
+        white-space: pre-line;
         font-size: 18px;
         line-height: 1.4;
         color: var(--dark-grey);
