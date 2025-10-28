@@ -1078,7 +1078,7 @@ body.modal-open {
 
     .section-title-wrapper .section-subtitle::after {
         content: "Swipe through our range of products, tap to expand";
-        font-size: 16px;
+        font-size: 18px;
         line-height: 1.4;
         color: var(--dark-grey);
         display: block;
