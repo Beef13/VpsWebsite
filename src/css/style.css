@@ -785,34 +785,6 @@ body.modal-open {
 }
 
 /* Quick Browse Products Drag to Scroll */
-.quick-browse-products-wrapper {
-    /* Enable smooth scrolling */
-    scroll-behavior: smooth;
-    
-    /* Prevent text selection during drag */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    
-    /* Smooth momentum scrolling on iOS */
-    -webkit-overflow-scrolling: touch;
-    
-    /* Prevent default touch behaviors */
-    touch-action: pan-x;
-}
-
-/* Prevent text selection on product items during drag */
-.quick-browse-products-wrapper .qbp-container {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    
-    /* Ensure items don't interfere with drag */
-    pointer-events: auto;
-}
-
 /* Products */
 
 .quick-browse-products-wrapper {
@@ -831,9 +803,6 @@ body.modal-open {
     /* Scroll bar */
     scrollbar-width: none;       /* Firefox */
     -ms-overflow-style: none;    /* Internet Explorer 10+ */
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
-    scroll-padding-inline: 40px;
 }
 
 /* Scroll bar edit */
@@ -848,20 +817,10 @@ body.modal-open {
     height: 377px;
     overflow: visible;
     cursor: grab;
-    scroll-snap-align: center;
 }
 
 .qbp-container:hover {
     cursor: grab;
-}
-
-.qbp-container:active {
-    cursor: grabbing !important;
-}
-
-/* Ensure grabbing cursor during drag operations */
-.quick-browse-products-wrapper.dragging .qbp-container {
-    cursor: grabbing !important;
 }
 
 .quick-browse-bottom {
@@ -1018,6 +977,10 @@ body.modal-open {
 
 /* Responsive layout for mobile through iPad widths */
 @media screen and (min-width: 200px) and (max-width: 1024px) {
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         padding-top: 70px;
         background-attachment: fixed;

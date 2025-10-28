@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Setup functionality
     setupInfiniteScroll();
     setupQuickBrowseNavigation();
-    setupDragToScroll();
     setupMobileHeroFormModal();
     setupServicesScrollActivation();
 });
@@ -80,58 +79,6 @@ function setupQuickBrowseNavigation() {
     rightArrow.style.cursor = 'pointer';
 }
 
-// Drag to scroll functionality
-function setupDragToScroll() {
-    const productsWrapper = document.querySelector('.quick-browse-products-wrapper');
-    if (!productsWrapper) return;
-    
-    let isDragging = false;
-    let startX, startScrollLeft;
-    
-    // Mouse events for desktop
-    productsWrapper.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.pageX - productsWrapper.offsetLeft;
-        startScrollLeft = productsWrapper.scrollLeft;
-        productsWrapper.style.userSelect = 'none';
-    });
-    
-    productsWrapper.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - productsWrapper.offsetLeft;
-        const walk = (x - startX);
-        productsWrapper.scrollLeft = startScrollLeft - walk;
-    });
-    
-    productsWrapper.addEventListener('mouseup', () => {
-        isDragging = false;
-        productsWrapper.style.userSelect = 'auto';
-    });
-    
-    productsWrapper.addEventListener('mouseleave', () => {
-        isDragging = false;
-        productsWrapper.style.userSelect = 'auto';
-    });
-    
-    // Touch events for mobile
-    productsWrapper.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        startX = e.touches[0].pageX - productsWrapper.offsetLeft;
-        startScrollLeft = productsWrapper.scrollLeft;
-    });
-    
-    productsWrapper.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        const x = e.touches[0].pageX - productsWrapper.offsetLeft;
-        const walk = (x - startX);
-        productsWrapper.scrollLeft = startScrollLeft - walk;
-    });
-    
-    productsWrapper.addEventListener('touchend', () => {
-        isDragging = false;
-    });
-}
 
 // Header menu toggle
 function setupHeaderMenu() {
