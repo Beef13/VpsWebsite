@@ -207,6 +207,12 @@ body.nav-locked {
     .header-container {
         padding: 0 80px;
         gap: 12px;
+        /* Ensure header stays pinned on mobile */
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1000 !important;
     }
 
     .menu-toggle {
