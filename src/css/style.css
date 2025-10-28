@@ -831,6 +831,9 @@ body.modal-open {
     /* Scroll bar */
     scrollbar-width: none;       /* Firefox */
     -ms-overflow-style: none;    /* Internet Explorer 10+ */
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 40px;
 }
 
 /* Scroll bar edit */
@@ -845,6 +848,7 @@ body.modal-open {
     height: 377px;
     overflow: visible;
     cursor: grab;
+    scroll-snap-align: center;
 }
 
 .qbp-container:hover {

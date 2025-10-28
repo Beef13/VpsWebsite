@@ -100,7 +100,7 @@ function setupDragToScroll() {
         if (!isDragging) return;
         e.preventDefault();
         const x = e.pageX - productsWrapper.offsetLeft;
-        const walk = (x - startX) * 2;
+        const walk = (x - startX);
         productsWrapper.scrollLeft = startScrollLeft - walk;
     });
     
@@ -124,7 +124,7 @@ function setupDragToScroll() {
     productsWrapper.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
         const x = e.touches[0].pageX - productsWrapper.offsetLeft;
-        const walk = (x - startX) * 2;
+        const walk = (x - startX);
         productsWrapper.scrollLeft = startScrollLeft - walk;
     });
     
