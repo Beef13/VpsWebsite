@@ -218,26 +218,96 @@ function setupServicesScrollActivation() {
 
     const breakpointQuery = window.matchMedia('(max-width: 1024px)');
     let observer = null;
+    let activeCard = null;
+    const metrics = new Map();
+    let scheduled = false;
 
     const resetState = () => {
         cards.forEach((card) => card.classList.remove('is-active'));
+        activeCard = null;
+        metrics.clear();
+    };
+
+    const scheduleUpdate = () => {
+        if (scheduled) return;
+        scheduled = true;
+        requestAnimationFrame(() => {
+            scheduled = false;
+            updateActiveCard();
+        });
+    };
+
+    const updateActiveCard = () => {
+        if (!metrics.size) {
+            if (activeCard) {
+                activeCard.classList.remove('is-active');
+                activeCard = null;
+            }
+            return;
+        }
+
+        let bestCard = null;
+        let bestScore = Number.POSITIVE_INFINITY;
+        metrics.forEach((value, card) => {
+            if (value.distance < bestScore) {
+                bestScore = value.distance;
+                bestCard = card;
+            }
+        });
+
+        if (activeCard !== bestCard) {
+            if (activeCard) {
+                activeCard.classList.remove('is-active');
+            }
+            if (bestCard) {
+                bestCard.classList.add('is-active');
+            }
+            activeCard = bestCard;
+        }
+    };
+
+    const recalcMetrics = () => {
+        const viewportCenter = window.innerHeight / 2;
+        metrics.forEach((value, card) => {
+            const rect = card.getBoundingClientRect();
+            const cardCenter = rect.top + rect.height / 2;
+            const distance = Math.abs(cardCenter - viewportCenter);
+            metrics.set(card, { distance });
+        });
+        scheduleUpdate();
+    };
+
+    const handleScroll = () => {
+        if (!metrics.size) return;
+        recalcMetrics();
+    };
+
+    const handleResize = () => {
+        if (!metrics.size) return;
+        recalcMetrics();
     };
 
     const createObserver = () => {
         const options = {
             root: null,
-            threshold: [0.35, 0.65],
-            rootMargin: '-10% 0px -10% 0px',
+            threshold: Array.from({ length: 11 }, (_, i) => i / 10),
+            rootMargin: '-20% 0px -20% 0px',
         };
 
         const obs = new IntersectionObserver((entries) => {
+            const viewportCenter = window.innerHeight / 2;
             entries.forEach((entry) => {
+                const card = entry.target;
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-active');
+                    const rect = entry.boundingClientRect;
+                    const cardCenter = rect.top + rect.height / 2;
+                    const distance = Math.abs(cardCenter - viewportCenter);
+                    metrics.set(card, { distance });
                 } else {
-                    entry.target.classList.remove('is-active');
+                    metrics.delete(card);
                 }
             });
+            scheduleUpdate();
         }, options);
 
         cards.forEach((card) => obs.observe(card));
@@ -249,6 +319,8 @@ function setupServicesScrollActivation() {
             observer.disconnect();
             observer = null;
         }
+        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('resize', handleResize);
         resetState();
     };
 
@@ -257,6 +329,9 @@ function setupServicesScrollActivation() {
             if (!observer) {
                 observer = createObserver();
             }
+            recalcMetrics();
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            window.addEventListener('resize', handleResize);
         } else {
             teardown();
         }
