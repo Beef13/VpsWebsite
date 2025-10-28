@@ -1040,13 +1040,12 @@ body.modal-open {
     body {
         padding-top: 70px;
         background-attachment: scroll;
-        min-height: 100vh;
-        min-height: 100dvh;
-        background-size: auto 700px !important;
+        background-size: auto 700px;
         background-position: center top;
         background-repeat: no-repeat;
         background-color: rgba(0, 0, 0, 0.45);
         background-blend-mode: multiply;
+        min-height: 100vh;
     }
 
     .hero-section-container {
