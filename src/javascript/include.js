@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupQuickBrowseNavigation();
     setupMobileHeroFormModal();
     setupServicesScrollActivation();
+    setupQuickBrowseCardExpansion();
 });
 
 // Component loader with error handling
@@ -304,5 +305,67 @@ function setupServicesScrollActivation() {
         reducedMotionQuery.addEventListener('change', handleReducedMotion);
     } else if (reducedMotionQuery.addListener) {
         reducedMotionQuery.addListener(handleReducedMotion);
+    }
+}
+
+function setupQuickBrowseCardExpansion() {
+    const cards = document.querySelectorAll('.qbp-card');
+    if (!cards.length) return;
+
+    const coarsePointerQuery = window.matchMedia('(hover: none), (pointer: coarse)');
+
+    const collapseAll = (except) => {
+        cards.forEach((card) => {
+            if (card !== except) {
+                card.classList.remove('is-expanded');
+            }
+        });
+    };
+
+    const handleCardClick = (event) => {
+        if (!coarsePointerQuery.matches) return;
+        if (event.target.closest('.qbp-button')) return;
+
+        const card = event.currentTarget;
+        const shouldExpand = !card.classList.contains('is-expanded');
+
+        collapseAll(null);
+
+        if (shouldExpand) {
+            card.classList.add('is-expanded');
+        }
+
+        event.preventDefault();
+    };
+
+    const handleKeyDown = (event) => {
+        if (!coarsePointerQuery.matches) return;
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        handleCardClick.call(event.currentTarget, event);
+    };
+
+    const handleMouseLeave = (event) => {
+        if (coarsePointerQuery.matches) return;
+        event.currentTarget.classList.remove('is-expanded');
+    };
+
+    cards.forEach((card) => {
+        if (!card.hasAttribute('tabindex')) {
+            card.setAttribute('tabindex', '0');
+        }
+        card.addEventListener('click', handleCardClick);
+        card.addEventListener('keydown', handleKeyDown);
+        card.addEventListener('mouseleave', handleMouseLeave);
+    });
+
+    const resetOnChange = () => {
+        collapseAll(null);
+    };
+
+    if (coarsePointerQuery.addEventListener) {
+        coarsePointerQuery.addEventListener('change', resetOnChange);
+    } else if (coarsePointerQuery.addListener) {
+        coarsePointerQuery.addListener(resetOnChange);
     }
 }

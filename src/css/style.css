@@ -803,6 +803,8 @@ body.modal-open {
     /* Scroll bar */
     scrollbar-width: none;       /* Firefox */
     -ms-overflow-style: none;    /* Internet Explorer 10+ */
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
 }
 
 /* Scroll bar edit */
