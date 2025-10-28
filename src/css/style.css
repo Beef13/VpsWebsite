@@ -2,7 +2,7 @@
 body {
     background-image: url("../assets/images/general-site/forrest1.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     padding-top: 70px; /* Account for fixed header height */
@@ -11,6 +11,12 @@ body {
     background-origin: padding-box;
     background-clip: border-box;
     min-height: 100vh;
+    
+    /* Prevent scaling and maintain exact size */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     
     /* Fallback for browsers that don't support background-attachment: fixed */
     -webkit-background-attachment: fixed;
@@ -25,17 +31,20 @@ body {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-image: url("../assets/images/general-site/forrest1.jpg");
         background-size: cover;
-        background-position: center;
+        background-position: center center;
         background-repeat: no-repeat;
         z-index: -1;
         pointer-events: none;
-        /* Ensure it stays fixed on mobile */
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
+        /* Prevent scaling and maintain exact size */
+        -webkit-transform: translateZ(0) scale(1);
+        transform: translateZ(0) scale(1);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        will-change: auto;
     }
     
     body {
