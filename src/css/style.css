@@ -1081,6 +1081,14 @@ body.modal-open {
         display: none;
     }
 
+    .services-container:hover {
+        border: solid 1px transparent;
+        box-shadow: none;
+        transform: none;
+        background: none;
+        backdrop-filter: none;
+    }
+
     .quick-browse-section-wrapper {
         padding: 20px 0px 16px;
     }
