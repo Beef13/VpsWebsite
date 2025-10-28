@@ -2,80 +2,10 @@
 body {
     background-image: url("../assets/images/general-site/forrest1.jpg");
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     padding-top: 70px; /* Account for fixed header height */
-    
-    /* Ensure consistent background behavior across all browsers */
-    background-origin: padding-box;
-    background-clip: border-box;
-    min-height: 100vh;
-    
-    /* Prevent scaling and maintain exact size */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    
-    /* Fallback for browsers that don't support background-attachment: fixed */
-    -webkit-background-attachment: fixed;
-    -moz-background-attachment: fixed;
-    -o-background-attachment: fixed;
-}
-
-/* Mobile-specific background handling - Use pseudo-element for better mobile support */
-@media screen and (max-width: 768px) {
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-image: url("../assets/images/general-site/forrest1.jpg");
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        z-index: -1;
-        pointer-events: none;
-        /* Prevent scaling and maintain exact size */
-        -webkit-transform: translateZ(0) scale(1);
-        transform: translateZ(0) scale(1);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        will-change: auto;
-    }
-    
-    body {
-        background-image: none;
-        background-attachment: fixed;
-        -webkit-background-attachment: fixed;
-        -moz-background-attachment: fixed;
-        -o-background-attachment: fixed;
-    }
-}
-
-/* Fallback for browsers that don't support background-attachment: fixed */
-@supports not (background-attachment: fixed) {
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("../assets/images/general-site/forrest1.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: -1;
-        pointer-events: none;
-    }
-    
-    body {
-        background-image: none;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
