@@ -1071,6 +1071,19 @@ body.modal-open {
         margin-bottom: 10px;
     }
 
+    .section-title-wrapper .section-subtitle {
+        font-size: 0;
+        line-height: 0;
+    }
+
+    .section-title-wrapper .section-subtitle::after {
+        content: "Swipe through our range of products, tap to expand";
+        font-size: 16px;
+        line-height: 1.4;
+        color: var(--dark-grey);
+        display: block;
+    }
+
     .qbp-container {
         flex-shrink: 0;
         width: 250px;
