@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPS Debug - GitHub Pages Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f0f0f0;
+        }
+        .test-box {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+    </style>
+</head>
+<body>
+    <h1>VPS Website - GitHub Pages Debug Test</h1>
+    
+    <div class="test-box">
+        <h2>Basic Test</h2>
+        <p class="success">✅ HTML is loading correctly</p>
+        <p class="success">✅ CSS is working</p>
+        <p class="info">Current time: <span id="time"></span></p>
+    </div>
+    
+    <div class="test-box">
+        <h2>Asset Loading Test</h2>
+        <p class="info">Testing image loading...</p>
+        <img src="./src/assets/images/general-site/vps-logo.png" alt="VPS Logo" style="max-width: 200px; height: auto;" onload="document.getElementById('img-test').innerHTML='✅ Logo image loaded successfully'" onerror="document.getElementById('img-test').innerHTML='❌ Logo image failed to load'">
+        <p id="img-test" class="info">Loading...</p>
+    </div>
+    
+    <div class="test-box">
+        <h2>CSS Loading Test</h2>
+        <p class="info">Testing CSS imports...</p>
+        <p id="css-test" class="info">Loading...</p>
+    </div>
+    
+    <div class="test-box">
+        <h2>JavaScript Test</h2>
+        <p class="info">Testing JavaScript functionality...</p>
+        <button onclick="testJS()">Test JavaScript</button>
+        <p id="js-test" class="info">Click the button to test</p>
+    </div>
+    
+    <div class="test-box">
+        <h2>Main Site Link</h2>
+        <p><a href="./index.html" style="color: #05a84b; font-weight: bold; text-decoration: none;">→ Go to Main VPS Website</a></p>
+    </div>
+
+    <script>
+        // Update time
+        document.getElementById('time').textContent = new Date().toLocaleString();
+        
+        // Test CSS loading
+        function testCSS() {
+            const testDiv = document.createElement('div');
+            testDiv.style.position = 'absolute';
+            testDiv.style.left = '-9999px';
+            testDiv.style.width = '100px';
+            testDiv.style.height = '100px';
+            testDiv.style.background = 'linear-gradient(45deg, #05a84b, #048a5a)';
+            document.body.appendChild(testDiv);
+            
+            const computedStyle = window.getComputedStyle(testDiv);
+            if (computedStyle.background.includes('linear-gradient')) {
+                document.getElementById('css-test').innerHTML = '✅ CSS gradients working';
+            } else {
+                document.getElementById('css-test').innerHTML = '❌ CSS gradients not working';
+            }
+            document.body.removeChild(testDiv);
+        }
+        
+        // Test JavaScript
+        function testJS() {
+            document.getElementById('js-test').innerHTML = '✅ JavaScript is working correctly';
+        }
+        
+        // Run tests on load
+        window.addEventListener('load', () => {
+            testCSS();
+        });
+    </script>
+</body>
+</html>
