@@ -988,7 +988,7 @@ body.modal-open {
         background-attachment: fixed;
         min-height: 100vh;
         min-height: 100dvh;
-        background-size: auto 120vw;
+        background-size: auto 100vh;
         background-position: center top;
         background-color: rgba(0, 0, 0, 0.45);
         background-blend-mode: multiply;
