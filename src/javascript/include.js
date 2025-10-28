@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupQuickBrowseNavigation();
     setupDragToScroll();
     setupMobileHeroFormModal();
+    setupServicesScrollActivation();
 });
 
 // Component loader with error handling
@@ -206,4 +207,80 @@ function setupMobileHeroFormModal() {
             closeModal();
         }
     });
+}
+
+function setupServicesScrollActivation() {
+    const cards = document.querySelectorAll('.services-container');
+    if (!cards.length) return;
+
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reducedMotionQuery.matches) return;
+
+    const breakpointQuery = window.matchMedia('(max-width: 1024px)');
+    let observer = null;
+
+    const resetState = () => {
+        cards.forEach((card) => card.classList.remove('is-active'));
+    };
+
+    const createObserver = () => {
+        const options = {
+            root: null,
+            threshold: [0.35, 0.65],
+            rootMargin: '-10% 0px -10% 0px',
+        };
+
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-active');
+                } else {
+                    entry.target.classList.remove('is-active');
+                }
+            });
+        }, options);
+
+        cards.forEach((card) => obs.observe(card));
+        return obs;
+    };
+
+    const teardown = () => {
+        if (observer) {
+            observer.disconnect();
+            observer = null;
+        }
+        resetState();
+    };
+
+    const handleBreakpointChange = (event) => {
+        if (event.matches) {
+            if (!observer) {
+                observer = createObserver();
+            }
+        } else {
+            teardown();
+        }
+    };
+
+    handleBreakpointChange(breakpointQuery);
+
+    if (breakpointQuery.addEventListener) {
+        breakpointQuery.addEventListener('change', handleBreakpointChange);
+    } else if (breakpointQuery.addListener) {
+        breakpointQuery.addListener(handleBreakpointChange);
+    }
+
+    const handleReducedMotion = (event) => {
+        if (event.matches) {
+            teardown();
+        } else {
+            handleBreakpointChange(breakpointQuery);
+        }
+    };
+
+    if (reducedMotionQuery.addEventListener) {
+        reducedMotionQuery.addEventListener('change', handleReducedMotion);
+    } else if (reducedMotionQuery.addListener) {
+        reducedMotionQuery.addListener(handleReducedMotion);
+    }
 }
