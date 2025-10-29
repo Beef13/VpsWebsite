@@ -580,6 +580,12 @@ body.modal-open {
     overflow: visible;
 }
 
+/* Hide mobile-specific elements on desktop */
+.get-in-touch-address,
+.get-in-touch-map-mobile {
+    display: none;
+}
+
 .get-in-touch-heading {
     margin: 0;
     text-align: center;
