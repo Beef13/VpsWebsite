@@ -71,6 +71,7 @@ function createProductCard(product) {
     
     // Product weight type
     const weightType = document.createElement('p');
+    weightType.className = 'weight-type';
     weightType.textContent = product.weightType;
     
     // Product description
