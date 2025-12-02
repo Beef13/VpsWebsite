@@ -1108,7 +1108,7 @@ body.modal-open {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 89px 124px;
+    padding: 50px 226px;
     gap: 10px;
     width: 100%;
     background: linear-gradient(180deg, rgba(5, 168, 75, 0.7) 0%, rgba(0, 124, 53, 0.7) 100%);
@@ -1166,6 +1166,7 @@ body.modal-open {
     font-size: 18px;
     line-height: 22px;
     text-align: center;
+    white-space: nowrap;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
