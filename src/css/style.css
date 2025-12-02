@@ -19,13 +19,13 @@ body {
     padding-top: 70px; /* Account for fixed header height */
 }
 
-/* Mobile-specific forest background fix */
-@media screen and (max-width: 768px) {
+/* Mobile and Tablet-specific forest background fix */
+@media screen and (max-width: 1024px) {
     html {
         position: relative; /* create stacking context for ::before */
     }
     body {
-        /* Use pseudo-element for better mobile fixed background support */
+        /* Use pseudo-element for better mobile/tablet fixed background support */
         background-image: none;
         position: relative;
         z-index: 1; /* ensure content sits above background */
@@ -61,7 +61,7 @@ body {
 }
 
 /* Additional fix for mobile viewport changes */
-@media screen and (max-width: 768px) and (orientation: portrait) {
+@media screen and (max-width: 1024px) and (orientation: portrait) {
     html::before {
         /* Use a fixed height to prevent viewport scaling */
         height: 100vh;
@@ -1321,12 +1321,7 @@ body.modal-open {
 
     body {
         padding-top: 70px;
-        background-attachment: scroll;
-        background-size: auto 700px;
-        background-position: center top;
-        background-repeat: no-repeat;
-        background-color: rgba(0, 0, 0, 0.45);
-        background-blend-mode: multiply;
+        /* Background now handled by html::before pseudo-element above */
         min-height: 100vh;
     }
 
