@@ -1,53 +1,18 @@
-// Loading Header and Footer
-// Updated: 2025-01-04 - Optimized for performance
+// Main initialization - Header and Footer are now inline for instant loading
+// Updated: 2025-01-04 - Optimized for performance with inline components
 document.addEventListener('DOMContentLoaded', () => {
-    // Load components
-    loadComponent('header', './src/components/header.html');
-    loadComponent('footer', './src/components/footer.html');
+    // Setup header and footer functionality
+    setupHeaderMenu();
+    setupNavigation();
+    setupMobileHeaderScroll();
     
-    // Setup functionality
+    // Setup page functionality
     setupInfiniteScroll();
     setupQuickBrowseNavigation();
     setupMobileHeroFormModal();
     setupServicesScrollActivation();
     setupQuickBrowseCardExpansion();
 });
-
-// Component loader with error handling and path detection
-function loadComponent(elementId, url) {
-    const element = document.getElementById(elementId);
-    if (!element) return;
-    
-    // Detect if we're in a subdirectory and adjust path accordingly
-    const isInSubdirectory = window.location.pathname.includes('/pages/');
-    let componentPath = url;
-    
-    // If in subdirectory and path starts with './', adjust to '../'
-    if (isInSubdirectory && url.startsWith('./src/')) {
-        componentPath = url.replace('./src/', '../');
-    }
-    
-    fetch(componentPath)
-        .then(response => {
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            return response.text();
-        })
-        .then(data => {
-            element.innerHTML = data;
-            if (elementId === 'header') {
-                fixHeaderPaths();
-                setupHeaderMenu();
-                setupNavigation();
-                setupMobileHeaderScroll();
-            }
-            if (elementId === 'footer') {
-                setupNavigation();
-            }
-        })
-        .catch(error => {
-            // Silent fail for production
-        });
-}
 
 // Infinite scroll setup
 function setupInfiniteScroll() {
