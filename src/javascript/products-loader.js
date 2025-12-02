@@ -65,6 +65,10 @@ function createProductCard(product) {
     const name = document.createElement('h3');
     name.textContent = product.name;
     
+    // Create specs container for size, weight type, and capacity
+    const specsContainer = document.createElement('div');
+    specsContainer.className = 'product-specs';
+    
     // Product size
     const size = document.createElement('p');
     size.textContent = product.size;
@@ -77,6 +81,11 @@ function createProductCard(product) {
     // Product weight capacity
     const weightCapacity = document.createElement('p');
     weightCapacity.textContent = product.weightCapacity;
+    
+    // Add specs to container
+    specsContainer.appendChild(size);
+    specsContainer.appendChild(weightType);
+    specsContainer.appendChild(weightCapacity);
     
     // Chevron icon
     const chevron = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -107,9 +116,7 @@ function createProductCard(product) {
     
     // Assemble card content
     cardContent.appendChild(name);
-    cardContent.appendChild(size);
-    cardContent.appendChild(weightType);
-    cardContent.appendChild(weightCapacity);
+    cardContent.appendChild(specsContainer);
     cardContent.appendChild(chevron);
     cardContent.appendChild(button);
     
