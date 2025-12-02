@@ -1,0 +1,77 @@
+{
+  "products": [
+    {
+      "id": "product-1",
+      "name": "Pallet Type",
+      "size": "1000x1000",
+      "weightType": "Light Duty",
+      "description": "Example text that will provide a brief description that will allow the site user to then decide whether to expand to more details or not.",
+      "image": "./src/assets/images/general-site/pallet template.png",
+      "link": "#"
+    },
+    {
+      "id": "product-2",
+      "name": "Pallet Type",
+      "size": "1000x1000",
+      "weightType": "Medium Duty",
+      "description": "Example text that will provide a brief description that will allow the site user to then decide whether to expand to more details or not.",
+      "image": "./src/assets/images/general-site/pallet template.png",
+      "link": "#"
+    },
+    {
+      "id": "product-3",
+      "name": "Pallet Type",
+      "size": "1000x1000",
+      "weightType": "Heavy Duty",
+      "description": "Example text that will provide a brief description that will allow the site user to then decide whether to expand to more details or not.",
+      "image": "./src/assets/images/general-site/pallet template.png",
+      "link": "#"
+    },
+    {
+      "id": "product-4",
+      "name": "Pallet Type",
+      "size": "1200x1000",
+      "weightType": "Standard",
+      "description": "Example text that will provide a brief description that will allow the site user to then decide whether to expand to more details or not.",
+      "image": "./src/assets/images/general-site/pallet template.png",
+      "link": "#"
+    },
+    {
+      "id": "product-5",
+      "name": "Pallet Type",
+      "size": "1200x800",
+      "weightType": "Export Grade",
+      "description": "Example text that will provide a brief description that will allow the site user to then decide whether to expand to more details or not.",
+      "image": "./src/assets/images/general-site/pallet template.png",
+      "link": "#"
+    },
+    {
+      "id": "product-6",
+      "name": "Pallet Type",
+      "size": "1165x1165",
+      "weightType": "Custom",
+      "description": "Example text that will provide a brief description that will allow the site user to then decide whether to expand to more details or not.",
+      "image": "./src/assets/images/general-site/pallet template.png",
+      "link": "#"
+    },
+    {
+      "id": "product-7",
+      "name": "Pallet Type",
+      "size": "1000x1200",
+      "weightType": "Industrial",
+      "description": "Example text that will provide a brief description that will allow the site user to then decide whether to expand to more details or not.",
+      "image": "./src/assets/images/general-site/pallet template.png",
+      "link": "#"
+    },
+    {
+      "id": "product-8",
+      "name": "Pallet Type",
+      "size": "800x600",
+      "weightType": "Light Weight",
+      "description": "Example text that will provide a brief description that will allow the site user to then decide whether to expand to more details or not.",
+      "image": "./src/assets/images/general-site/pallet template.png",
+      "link": "#"
+    }
+  ]
+}
+
