@@ -18,7 +18,6 @@ async function handleFormSubmit(event) {
     
     const form = event.target;
     const submitButton = form.querySelector('button[type="submit"]');
-    const messageContainer = form.querySelector('.form-message');
     
     // Check honeypot (spam protection)
     const honeypot = form.querySelector('input[name="botcheck"]');
@@ -26,18 +25,9 @@ async function handleFormSubmit(event) {
         return; // Bot detected, silently fail
     }
     
-    // Disable submit button and show loading state
+    // Disable submit button during submission
     if (submitButton) {
         submitButton.disabled = true;
-        submitButton.dataset.originalText = submitButton.textContent;
-        submitButton.textContent = 'Sending...';
-        submitButton.classList.add('is-loading');
-    }
-    
-    // Clear previous messages
-    if (messageContainer) {
-        messageContainer.textContent = '';
-        messageContainer.className = 'form-message';
     }
     
     try {
@@ -56,8 +46,12 @@ async function handleFormSubmit(event) {
         const result = await response.json();
         
         if (response.ok && result.success) {
-            // Success
-            showMessage(messageContainer, 'success', 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
+            // Success - turn button green and show "Submitted"
+            if (submitButton) {
+                submitButton.classList.add('form-submitted');
+                submitButton.textContent = 'Submitted';
+            }
+            
             form.reset();
             
             // Close modal if this is the modal form
@@ -69,44 +63,37 @@ async function handleFormSubmit(event) {
                         modal.setAttribute('aria-hidden', 'true');
                         document.body.classList.remove('modal-open');
                     }
+                    // Reset button after modal closes
+                    if (submitButton) {
+                        submitButton.classList.remove('form-submitted');
+                        submitButton.textContent = 'Submit';
+                        submitButton.disabled = false;
+                    }
                 }, 2000);
+            } else {
+                // Reset button after 3 seconds for non-modal forms
+                setTimeout(() => {
+                    if (submitButton) {
+                        submitButton.classList.remove('form-submitted');
+                        submitButton.textContent = 'Submit';
+                        submitButton.disabled = false;
+                    }
+                }, 3000);
             }
         } else {
-            // Error from API
-            showMessage(messageContainer, 'error', result.message || 'Something went wrong. Please try again.');
+            // Error from API - re-enable button
+            if (submitButton) {
+                submitButton.disabled = false;
+            }
+            console.error('Form submission error:', result.message);
         }
         
     } catch (error) {
-        // Network or other error
+        // Network or other error - re-enable button
         console.error('Form submission error:', error);
-        showMessage(messageContainer, 'error', 'Failed to send message. Please check your connection and try again.');
-    } finally {
-        // Re-enable submit button
         if (submitButton) {
             submitButton.disabled = false;
-            submitButton.textContent = submitButton.dataset.originalText || 'Submit';
-            submitButton.classList.remove('is-loading');
-            delete submitButton.dataset.originalText;
         }
-    }
-}
-
-function showMessage(container, type, message) {
-    if (!container) return;
-    
-    container.textContent = message;
-    container.className = `form-message form-message--${type}`;
-    container.setAttribute('role', type === 'error' ? 'alert' : 'status');
-    
-    // Auto-hide success message after 5 seconds
-    if (type === 'success') {
-        setTimeout(() => {
-            container.classList.add('form-message--hidden');
-            setTimeout(() => {
-                container.textContent = '';
-                container.className = 'form-message';
-            }, 300);
-        }, 5000);
     }
 }
 

@@ -197,76 +197,13 @@
 
 /* Button Styling */
 
-/* Form Message Feedback Styles */
-.form-message {
-    margin-top: 15px;
-    padding: 0;
-    border-radius: 8px;
-    font-size: 14px;
-    line-height: 1.5;
-    text-align: center;
-    transition: all 0.3s ease;
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-}
-
-.form-message--success,
-.form-message--error {
-    opacity: 1;
-    max-height: 200px;
-    padding: 12px 15px;
-}
-
-.form-message--success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
-
-.form-message--error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-.form-message--hidden {
-    opacity: 0;
-    max-height: 0;
-    padding: 0;
-    margin-top: 0;
-}
-
-/* Loading state for submit buttons */
-button[type="submit"].is-loading {
-    position: relative;
-    color: transparent;
-    pointer-events: none;
-}
-
-button[type="submit"].is-loading::after {
-    content: "";
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 50%;
-    left: 50%;
-    margin-left: -8px;
-    margin-top: -8px;
-    border: 2px solid transparent;
-    border-top-color: currentColor;
-    border-radius: 50%;
-    animation: button-loading-spinner 0.6s linear infinite;
-    color: #FFFFFF;
-}
-
-@keyframes button-loading-spinner {
-    from {
-        transform: rotate(0turn);
-    }
-    to {
-        transform: rotate(1turn);
-    }
+/* Form submitted state - green button with smooth animation */
+button[type="submit"].form-submitted {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: white !important;
+    transition: all 0.4s ease;
+    transform: scale(1.02);
 }
 
 /* Hide honeypot field from view */
