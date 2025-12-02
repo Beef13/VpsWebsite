@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="../css/main.css" as="style">
+    <link rel="preload" href="../assets/images/general-site/FORKMAN_FINAL2.png" as="image">
+    
     <!-- Imported CSS -->
     <link rel="stylesheet" href="../css/main.css">
     
     <!-- Imported Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"></noscript>
 
     <title>VPS | Services</title>
 </head>
@@ -57,8 +62,8 @@
     <section id="footer"></section>
     
     <!-- JavaScript -->
-    <script src="../javascript/include.js"></script>
-    <script src="../javascript/form-handler.js"></script>
+    <script src="../javascript/include.js" defer></script>
+    <script src="../javascript/form-handler.js" defer></script>
 </body>
 </html>
 

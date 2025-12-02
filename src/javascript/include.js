@@ -45,7 +45,7 @@ function loadComponent(elementId, url) {
             }
         })
         .catch(error => {
-            console.error(`${elementId} loading error:`, error);
+            // Silent fail for production
         });
 }
 
@@ -394,12 +394,7 @@ function setupMobileHeaderScroll() {
     let ticking = false;
     const header = document.querySelector('.header-container');
     
-    if (!header) {
-        console.log('Header not found for scroll setup');
-        return;
-    }
-    
-    console.log('Mobile header scroll setup initialized');
+    if (!header) return;
     
     const updateHeaderVisibility = () => {
         const currentScrollY = window.scrollY;

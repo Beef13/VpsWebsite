@@ -7,10 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadProducts() {
     const container = document.getElementById('productsContainer');
-    if (!container) {
-        console.error('Products container not found');
-        return;
-    }
+    if (!container) return;
 
     try {
         // Fetch products data
@@ -36,7 +33,6 @@ async function loadProducts() {
         }
         
     } catch (error) {
-        console.error('Error loading products:', error);
         container.innerHTML = '<p style="color: white; text-align: center; width: 100%;">Failed to load products. Please try again later.</p>';
     }
 }
@@ -53,8 +49,27 @@ function createProductCard(product) {
     // Create card image
     const cardImage = document.createElement('div');
     cardImage.className = 'qbp-card-image';
-    if (product.image) {
-        cardImage.style.backgroundImage = `url('${product.image}')`;
+    cardImage.setAttribute('data-bg', product.image);
+    // Use Intersection Observer for lazy loading background images
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bg = entry.target.getAttribute('data-bg');
+                    if (bg) {
+                        entry.target.style.backgroundImage = `url('${bg}')`;
+                        entry.target.removeAttribute('data-bg');
+                    }
+                    imageObserver.unobserve(entry.target);
+                }
+            });
+        });
+        imageObserver.observe(cardImage);
+    } else {
+        // Fallback for browsers without Intersection Observer
+        if (product.image) {
+            cardImage.style.backgroundImage = `url('${product.image}')`;
+        }
     }
     
     // Create card content
