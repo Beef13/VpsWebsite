@@ -148,7 +148,6 @@
     .qbp-card:hover .qbp-card-content,
     .qbp-card:active .qbp-card-content {
         height: 128px;
-        box-shadow: none;
     }
 
     .qbp-card.is-expanded .qbp-card-image {
@@ -157,7 +156,6 @@
 
     .qbp-card.is-expanded .qbp-card-content {
         height: 310px;
-        box-shadow: 0 -6px 20px -1px rgba(0, 0, 0, 0.1);
     }
 
     .qbp-card.is-expanded .chevron-up {
