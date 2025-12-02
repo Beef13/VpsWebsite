@@ -80,7 +80,7 @@ function createProductCard(product) {
     
     // Product weight capacity
     const weightCapacity = document.createElement('p');
-    weightCapacity.textContent = product.weightCapacity;
+    weightCapacity.textContent = `Capacity: ${product.weightCapacity}`;
     
     // Add specs to container
     specsContainer.appendChild(size);
