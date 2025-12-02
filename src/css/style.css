@@ -1337,7 +1337,7 @@ body.modal-open {
     }
 
     .hero-selector-mobile {
-        display: flex;
+        display: none;
     }
 
     .hero-subheading {
