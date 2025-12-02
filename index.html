@@ -78,7 +78,7 @@
                     </svg>
                 </div>
                 <button class="hero-quote-button" type="button">
-                    <p>Get a Qoute</p>
+                    <p>Get a Quote</p>
                 </button>
                 <a class="call-button hero-call-button" href="tel:0414987492">
                     <svg class="phone-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -86,14 +86,19 @@
                     </svg>
                     <p>0414&nbsp;987&nbsp;492</p>
                 </a>
-                <div class="form hero-inline-form">
-                    <h3>Get a Quick Qoute</h3>
+                <form class="form hero-inline-form" action="https://api.web3forms.com/submit" method="POST" data-form-type="quick-quote">
+                    <h3>Get a Quick Quote</h3>
+                    <input type="hidden" name="access_key" value="d4abce28-c538-48c8-9bc1-173bf2377efd">
+                    <input type="hidden" name="subject" value="New Quick Quote Request - Inline Form">
+                    <input type="hidden" name="from_name" value="VPS Website - Quick Quote">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                     <input type="text" name="name" placeholder="Name*" required>
                     <input type="text" name="company" placeholder="Company">
                     <input type="email" name="email" placeholder="Email*" required>
                     <textarea name="enquiry" placeholder="Enquiry*" required></textarea>
                     <button type="submit">Submit</button>
-                </div>
+                    <div class="form-message"></div>
+                </form>
             </div>
             <!-- Slide Selector -->
             <div class="hero-bottom">
@@ -111,14 +116,19 @@
     <div class="hero-form-modal" id="heroFormModal" aria-hidden="true">
         <div class="hero-form-modal__content" role="dialog" aria-modal="true" aria-labelledby="heroFormModalTitle">
             <button type="button" class="hero-form-modal__close" aria-label="Close form">&times;</button>
-            <div class="form hero-modal-form">
+            <form class="form hero-modal-form" action="https://api.web3forms.com/submit" method="POST" data-form-type="quick-quote-modal">
                 <h3 id="heroFormModalTitle">Get a Quick Qoute</h3>
-                <input type="text" name="modal-name" placeholder="Name*" required>
-                <input type="text" name="modal-company" placeholder="Company">
-                <input type="email" name="modal-email" placeholder="Email*" required>
-                <textarea name="modal-enquiry" placeholder="Enquiry*" required></textarea>
+                <input type="hidden" name="access_key" value="d4abce28-c538-48c8-9bc1-173bf2377efd">
+                <input type="hidden" name="subject" value="New Quick Quote Request - Modal Form">
+                <input type="hidden" name="from_name" value="VPS Website - Quick Quote">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <input type="text" name="name" placeholder="Name*" required>
+                <input type="text" name="company" placeholder="Company">
+                <input type="email" name="email" placeholder="Email*" required>
+                <textarea name="enquiry" placeholder="Enquiry*" required></textarea>
                 <button type="submit">Submit</button>
-            </div>
+                <div class="form-message"></div>
+            </form>
         </div>
     </div>
 
@@ -423,7 +433,11 @@
                         </iframe>
                     </div>
                 </div>
-                <form class="get-in-touch-form">
+                <form class="get-in-touch-form" action="https://api.web3forms.com/submit" method="POST" data-form-type="contact">
+                    <input type="hidden" name="access_key" value="74013ee7-c7ba-4e16-81d2-5e292792fda4">
+                    <input type="hidden" name="subject" value="New Contact Form Submission">
+                    <input type="hidden" name="from_name" value="VPS Website - Contact Form">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                     <div class="form-row">
                         <div class="form-field">
                             <label for="contact-name">Name*</label>
@@ -455,6 +469,7 @@
                         <textarea id="contact-enquiry" name="enquiry" placeholder="How can we help?" required></textarea>
                     </div>
                     <button type="submit" class="get-in-touch-submit">Submit</button>
+                    <div class="form-message"></div>
                 </form>
             </div>
             
@@ -484,5 +499,6 @@
     <section id="footer"></section>
     <!-- JavaScript -->
     <script src="./src/javascript/include.js"></script>
+    <script src="./src/javascript/form-handler.js"></script>
 </body>
 </html>
