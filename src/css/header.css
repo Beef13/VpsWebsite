@@ -34,6 +34,12 @@
 }
 
 /* VPS Logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .header-container img {
     height: 70px;
     width: auto;
@@ -71,6 +77,8 @@
 
 .nav-button {
     transition: color 0.1s ease-in-out;
+    text-decoration: none;
+    color: inherit;
 }
 
 .nav-button:hover {

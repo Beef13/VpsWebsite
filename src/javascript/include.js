@@ -36,6 +36,7 @@ function loadComponent(elementId, url) {
             element.innerHTML = data;
             if (elementId === 'header') {
                 setupHeaderMenu();
+                setupNavigation();
             }
         })
         .catch(error => {
@@ -377,4 +378,44 @@ function setupQuickBrowseCardExpansion() {
     } else if (coarsePointerQuery.addListener) {
         coarsePointerQuery.addListener(resetOnChange);
     }
+}
+
+// Setup navigation links with correct paths
+function setupNavigation() {
+    const navLinks = document.querySelectorAll('[data-page]');
+    if (!navLinks.length) return;
+    
+    // Detect if we're in a subdirectory
+    const isInSubdirectory = window.location.pathname.includes('/pages/');
+    const pathPrefix = isInSubdirectory ? '../../' : './';
+    
+    // Page mapping
+    const pageMap = {
+        'home': 'index.html',
+        'products': 'src/pages/products.html',
+        'services': 'src/pages/services.html',
+        'about': 'index.html#about',
+        'gallery': 'src/pages/gallery.html',
+        'contact': 'index.html#contact'
+    };
+    
+    navLinks.forEach(link => {
+        const page = link.getAttribute('data-page');
+        if (pageMap[page]) {
+            let href = pageMap[page];
+            
+            // Adjust path for subdirectory pages
+            if (isInSubdirectory) {
+                if (href.startsWith('src/pages/')) {
+                    // We're in /pages/ going to another page in /pages/
+                    href = href.replace('src/pages/', './');
+                } else if (href.startsWith('index.html')) {
+                    // We're in /pages/ going to root
+                    href = '../../' + href;
+                }
+            }
+            
+            link.href = href;
+        }
+    });
 }
