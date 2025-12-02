@@ -13,12 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
     setupQuickBrowseCardExpansion();
 });
 
-// Component loader with error handling
+// Component loader with error handling and path detection
 function loadComponent(elementId, url) {
     const element = document.getElementById(elementId);
     if (!element) return;
     
-    fetch(url)
+    // Detect if we're in a subdirectory and adjust path accordingly
+    const isInSubdirectory = window.location.pathname.includes('/pages/');
+    let componentPath = url;
+    
+    // If in subdirectory and path starts with './', adjust to '../'
+    if (isInSubdirectory && url.startsWith('./src/')) {
+        componentPath = url.replace('./src/', '../');
+    }
+    
+    fetch(componentPath)
         .then(response => {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             return response.text();
