@@ -112,7 +112,7 @@
 
 .qbp-card:hover .qbp-card-content,
 .qbp-card.is-expanded .qbp-card-content {
-    height: 310px;
+    height: 100%;
     box-shadow: 0 -6px 20px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -146,7 +146,7 @@
     }
 
     .qbp-card.is-expanded .qbp-card-content {
-        height: 310px;
+        height: 100%;
         box-shadow: 0 -6px 20px -1px rgba(0, 0, 0, 0.1);
     }
 
@@ -198,8 +198,8 @@
 /* Additional text styling for expanded cards */
 .qbp-card-content .p2 {
     margin-top: 20px;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 18px;
+    line-height: 22px;
     color: #808080;
 }
 
