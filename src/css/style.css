@@ -1944,7 +1944,7 @@ footer .footer-container {
 
 .products-page-wrapper {
     min-height: 100vh;
-    padding: 120px 20px 80px 20px;
+    padding: 30px 20px 80px 20px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(245, 245, 245, 0.7) 100%);
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
@@ -1968,7 +1968,7 @@ footer .footer-container {
     font-size: 20px;
     color: #434242;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .products-grid {
@@ -1998,16 +1998,22 @@ footer .footer-container {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 245, 0.95) 100%);
     border-radius: 20px;
     padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease, backdrop-filter 0.35s ease;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    will-change: transform, box-shadow, backdrop-filter;
+    transform: translateZ(0);
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border-color: rgba(5, 168, 75, 0.5);
+    border: solid 1px var(--light-grey);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
 }
 
 .product-card-badge {
