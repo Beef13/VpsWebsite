@@ -1067,7 +1067,7 @@ body.modal-open {
     scrollbar-width: none;       /* Firefox */
     -ms-overflow-style: none;    /* Internet Explorer 10+ */
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
+    touch-action: manipulation;
 }
 
 /* Scroll bar edit */
