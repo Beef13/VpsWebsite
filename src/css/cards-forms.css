@@ -84,7 +84,7 @@
 .qbp-card-content h3 {
     font-weight: 500;
     font-size: 22.5px;
-    color: #000000;
+    color: var(--black);
     margin: 0;
     text-align: left;
 }
@@ -125,6 +125,7 @@
 .qbp-card.is-expanded .qbp-card-content {
     height: 220px;
     box-shadow: 0 -6px 20px -1px rgba(0, 0, 0, 0.1);
+    background-color: #fffdf4;
 }
 
 @media screen and (max-width: 1024px) {
