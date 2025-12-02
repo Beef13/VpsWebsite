@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileHeroFormModal();
     setupServicesScrollActivation();
     setupQuickBrowseCardExpansion();
+    setupMobileHeaderScroll();
 });
 
 // Component loader with error handling and path detection
@@ -382,6 +383,62 @@ function setupQuickBrowseCardExpansion() {
     } else if (coarsePointerQuery.addListener) {
         coarsePointerQuery.addListener(resetOnChange);
     }
+}
+
+// Mobile header scroll behavior - hide on scroll down, show on scroll up
+function setupMobileHeaderScroll() {
+    // Only run on mobile devices
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
+    
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    const header = document.querySelector('.header-container');
+    
+    if (!header) return;
+    
+    const updateHeaderVisibility = () => {
+        const currentScrollY = window.scrollY;
+        
+        // Don't hide header at the very top
+        if (currentScrollY < 70) {
+            header.classList.remove('header-hidden');
+            header.classList.add('header-visible');
+        } else if (currentScrollY > lastScrollY) {
+            // Scrolling down
+            header.classList.add('header-hidden');
+            header.classList.remove('header-visible');
+        } else {
+            // Scrolling up
+            header.classList.remove('header-hidden');
+            header.classList.add('header-visible');
+        }
+        
+        lastScrollY = currentScrollY;
+        ticking = false;
+    };
+    
+    const onScroll = () => {
+        if (!mobileQuery.matches) {
+            // Remove classes if not on mobile
+            header.classList.remove('header-hidden', 'header-visible');
+            return;
+        }
+        
+        if (!ticking) {
+            window.requestAnimationFrame(updateHeaderVisibility);
+            ticking = true;
+        }
+    };
+    
+    // Listen to scroll events
+    window.addEventListener('scroll', onScroll, { passive: true });
+    
+    // Handle responsive changes
+    mobileQuery.addEventListener('change', (e) => {
+        if (!e.matches) {
+            header.classList.remove('header-hidden', 'header-visible');
+        }
+    });
 }
 
 // Fix header asset paths based on current location

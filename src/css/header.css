@@ -296,5 +296,14 @@ body.nav-locked {
     .header-container {
         padding: 0 10px;
         justify-content: space-between;
+        transition: transform 0.3s ease;
+    }
+
+    .header-container.header-hidden {
+        transform: translateY(-100%);
+    }
+
+    .header-container.header-visible {
+        transform: translateY(0);
     }
 }
