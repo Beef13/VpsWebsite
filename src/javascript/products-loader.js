@@ -119,10 +119,10 @@ function createProductCard(product) {
     
     chevron.appendChild(path);
     
-    // View More button
+    // More Info button
     const button = document.createElement('button');
     button.className = 'qbp-button';
-    button.textContent = 'View More';
+    button.textContent = 'More Info';
     if (product.link) {
         button.addEventListener('click', () => {
             window.location.href = product.link;
