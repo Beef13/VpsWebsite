@@ -394,21 +394,33 @@ function setupMobileHeaderScroll() {
     let ticking = false;
     const header = document.querySelector('.header-container');
     
-    if (!header) return;
+    if (!header) {
+        console.log('Header not found for scroll setup');
+        return;
+    }
+    
+    console.log('Mobile header scroll setup initialized');
     
     const updateHeaderVisibility = () => {
         const currentScrollY = window.scrollY;
+        
+        // Only apply on mobile
+        if (!mobileQuery.matches) {
+            header.classList.remove('header-hidden', 'header-visible');
+            ticking = false;
+            return;
+        }
         
         // Don't hide header at the very top
         if (currentScrollY < 70) {
             header.classList.remove('header-hidden');
             header.classList.add('header-visible');
-        } else if (currentScrollY > lastScrollY) {
-            // Scrolling down
+        } else if (currentScrollY > lastScrollY && Math.abs(currentScrollY - lastScrollY) > 5) {
+            // Scrolling down (with threshold to avoid jitter)
             header.classList.add('header-hidden');
             header.classList.remove('header-visible');
-        } else {
-            // Scrolling up
+        } else if (currentScrollY < lastScrollY && Math.abs(currentScrollY - lastScrollY) > 5) {
+            // Scrolling up (with threshold to avoid jitter)
             header.classList.remove('header-hidden');
             header.classList.add('header-visible');
         }
@@ -418,12 +430,6 @@ function setupMobileHeaderScroll() {
     };
     
     const onScroll = () => {
-        if (!mobileQuery.matches) {
-            // Remove classes if not on mobile
-            header.classList.remove('header-hidden', 'header-visible');
-            return;
-        }
-        
         if (!ticking) {
             window.requestAnimationFrame(updateHeaderVisibility);
             ticking = true;

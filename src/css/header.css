@@ -30,9 +30,10 @@
         0 8px 32px rgba(0, 0, 0, 0.1),
         0 2px 8px rgba(0, 0, 0, 0.05),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transform: scale(1);
+    transform: translateY(0);
     transform-origin: top center;
     min-height: 70px;
+    transition: transform 0.3s ease;
 }
 
 /* VPS Logo */
@@ -296,14 +297,13 @@ body.nav-locked {
     .header-container {
         padding: 0 10px;
         justify-content: space-between;
-        transition: transform 0.3s ease;
     }
 
     .header-container.header-hidden {
-        transform: translateY(-100%);
+        transform: translateY(-100%) !important;
     }
 
     .header-container.header-visible {
-        transform: translateY(0);
+        transform: translateY(0) !important;
     }
 }
