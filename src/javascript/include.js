@@ -35,6 +35,7 @@ function loadComponent(elementId, url) {
         .then(data => {
             element.innerHTML = data;
             if (elementId === 'header') {
+                fixHeaderPaths();
                 setupHeaderMenu();
                 setupNavigation();
             }
@@ -377,6 +378,20 @@ function setupQuickBrowseCardExpansion() {
         coarsePointerQuery.addEventListener('change', resetOnChange);
     } else if (coarsePointerQuery.addListener) {
         coarsePointerQuery.addListener(resetOnChange);
+    }
+}
+
+// Fix header asset paths based on current location
+function fixHeaderPaths() {
+    const isInSubdirectory = window.location.pathname.includes('/pages/');
+    
+    // Fix logo path
+    const logoImg = document.querySelector('.header-container img');
+    if (logoImg && isInSubdirectory) {
+        const currentSrc = logoImg.getAttribute('src');
+        if (currentSrc.startsWith('./src/')) {
+            logoImg.setAttribute('src', currentSrc.replace('./src/', '../'));
+        }
     }
 }
 
