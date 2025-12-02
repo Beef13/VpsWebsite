@@ -76,7 +76,22 @@ function createProductCard(product) {
     // Product weight type
     const weightType = document.createElement('p');
     weightType.className = 'weight-type';
-    weightType.textContent = product.weightType;
+    
+    // Split "Heavy Weight" into "Heavy" (bold) and "Weight" (regular)
+    const weightText = product.weightType;
+    if (weightText.includes('Weight')) {
+        const parts = weightText.split('Weight');
+        const boldPart = document.createElement('span');
+        boldPart.className = 'weight-type-bold';
+        boldPart.textContent = parts[0].trim();
+        
+        const regularPart = document.createTextNode(' Weight');
+        
+        weightType.appendChild(boldPart);
+        weightType.appendChild(regularPart);
+    } else {
+        weightType.textContent = weightText;
+    }
     
     // Product weight capacity
     const weightCapacity = document.createElement('p');
