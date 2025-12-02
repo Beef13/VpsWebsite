@@ -2,6 +2,12 @@
    BODY / BACKGROUND IMAGE
    ======================================== */
 
+/* Smooth scroll behavior for anchor links */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px; /* Offset for fixed header + extra space */
+}
+
 body {
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -1136,6 +1142,11 @@ body.modal-open {
     -webkit-backdrop-filter: blur(20px);
 }
 
+/* Anchor link scroll offset for About section */
+#about {
+    scroll-margin-top: 90px; /* Adjust this value to position higher or lower */
+}
+
 .about-us-section-wrapper > div:first-child {
     display: flex;
     flex-direction: row;
@@ -1569,10 +1580,6 @@ body.modal-open {
 
     .qbp-container .qbp-card-content h3 {
         font-size: 24px;
-    }
-
-    .qbp-container .qbp-card-content p {
-        /* font-size: 10px; */
     }
 
     .qbp-container .qbp-card-content .p2 {
