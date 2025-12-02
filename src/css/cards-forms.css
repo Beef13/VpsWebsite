@@ -1,4 +1,6 @@
-/* !!! 'Quick Browse Products Cards' */
+/* ========================================
+   QUICK BROWSE PRODUCTS CARDS
+   ======================================== */
 
 /* .qbp-card, .qbp-card-content {
     border: solid 1px var(--light-grey);
@@ -159,7 +161,9 @@
     transform: rotate(180deg);
 }
 
-/* !! Quick Qoute Form  */
+/* ========================================
+   QUICK QUOTE FORMS
+   ======================================== */
 
 /* Chevron up icon for expandable cards */
 .chevron-up {

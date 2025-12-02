@@ -1,4 +1,7 @@
-/* !!! 'Body / Background Image' */
+/* ========================================
+   BODY / BACKGROUND IMAGE
+   ======================================== */
+
 body {
     background-image: url("../assets/images/general-site/forrest1.jpg");
     background-size: cover;
@@ -83,7 +86,10 @@ body {
     }
 }
 
-/* Hero Section */
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
 .hero-section-wrapper {
     position: relative;
     width: 100%;
@@ -451,7 +457,9 @@ body.modal-open {
     font-weight: 500;
 }
 
-/* !!! 'Quick Browse Products' Section */
+/* ========================================
+   QUICK BROWSE PRODUCTS SECTION
+   ======================================== */
 
 .quick-browse-section-wrapper {
     display: flex;
@@ -550,7 +558,9 @@ body.modal-open {
     top: 10px;
 }
 
-/* --- Get in Touch Section --- */
+/* ========================================
+   GET IN TOUCH SECTION
+   ======================================== */
 
 .get-in-touch-section {
     position: relative;
@@ -736,7 +746,10 @@ body.modal-open {
 
 
 
-/* Contact Section */
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+
 .contact-section-wrapper {
     position: absolute;
     width: 1254px;
@@ -1029,8 +1042,9 @@ body.modal-open {
     margin: 5px 0;
 }
 
-/* Quick Browse Products Drag to Scroll */
-/* Products */
+/* ========================================
+   QUICK BROWSE PRODUCTS - DRAG TO SCROLL
+   ======================================== */
 
 .quick-browse-products-wrapper {
     display: flex;
@@ -1102,13 +1116,15 @@ body.modal-open {
     font-weight: 500;
 }
 
-/* !!! 'About Us' Section */
+/* ========================================
+   ABOUT US SECTION
+   ======================================== */
 
 .about-us-section-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 50px 120px;
+    padding: 50px 80px;
     gap: 10px;
     width: 100%;
     background: linear-gradient(180deg, rgba(5, 168, 75, 0.7) 0%, rgba(0, 124, 53, 0.7) 100%);
@@ -1241,7 +1257,9 @@ body.modal-open {
 }
 
 
-/* !!! 'Our Services' Section */
+/* ========================================
+   OUR SERVICES SECTION
+   ======================================== */
 
 .our-services-section-wrapper {
     display: flex;
