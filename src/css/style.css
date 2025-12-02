@@ -2036,7 +2036,7 @@ footer .footer-container {
     margin-top: 10px;
 }
 
-.product-specs {
+.product-card .product-specs {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -2047,13 +2047,13 @@ footer .footer-container {
     border-left: 3px solid rgba(5, 168, 75, 0.7);
 }
 
-.spec-item {
+.product-card .spec-item {
     font-size: 15px;
     color: #2c2c2c;
     margin: 0;
 }
 
-.spec-item strong {
+.product-card .spec-item strong {
     color: #000000;
     font-weight: 600;
 }
