@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileHeroFormModal();
     setupServicesScrollActivation();
     setupQuickBrowseCardExpansion();
-    setupMobileHeaderScroll();
 });
 
 // Component loader with error handling and path detection
@@ -39,6 +38,7 @@ function loadComponent(elementId, url) {
                 fixHeaderPaths();
                 setupHeaderMenu();
                 setupNavigation();
+                setupMobileHeaderScroll();
             }
             if (elementId === 'footer') {
                 setupNavigation();
