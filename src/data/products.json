@@ -5,6 +5,7 @@
       "name": "Australian Standard (New)",
       "size": "1165x1165mm",
       "weightType": "Heavy Weight",
+      "weightCapacity": "1500kg",
       "description": "Built with 25mm Thick Pine Timber boards to hold up to 1500Kg Capacity can also be customised for more weight capacity",
       "image": "./src/assets/images/general-site/pallet template.png",
       "link": "#"
@@ -14,6 +15,7 @@
       "name": "Australian Standard (New)",
       "size": "1165x1165mm",
       "weightType": "Medium Weight",
+      "weightCapacity": "1000kg",
       "description": "Built with 17mm Thick Pine Timber boards to hold up to 1000Kg Capacity",
       "image": "./src/assets/images/general-site/pallet template.png",
       "link": "#"
@@ -23,6 +25,7 @@
       "name": "Australian Standard (New)",
       "size": "1165x1165mm",
       "weightType": "Light Weight",
+      "weightCapacity": "500kg",
       "description": "Built with 12mm Thick Pine Timber boards to hold up to 500Kg Capacity",
       "image": "./src/assets/images/general-site/pallet template.png",
       "link": "#"
@@ -32,6 +35,7 @@
       "name": "Second Hand Standard",
       "size": "1165x1165mm",
       "weightType": "Heavy Weight",
+      "weightCapacity": "1500kg",
       "description": "Recycled Timber pallets, repaired with new timber boards. 1500Kg Capacity",
       "image": "./src/assets/images/general-site/pallet template.png",
       "link": "#"
@@ -41,6 +45,7 @@
       "name": "Second Hand Standard",
       "size": "1165x1165mm",
       "weightType": "Medium Weight",
+      "weightCapacity": "1000kg",
       "description": "Recycled Timber pallets, repaired with new timber boards. 1000Kg Capacity",
       "image": "./src/assets/images/general-site/pallet template.png",
       "link": "#"
@@ -50,25 +55,28 @@
       "name": "Second Hand Standard",
       "size": "1165x1165mm",
       "weightType": "Light Weight",
+      "weightCapacity": "500kg",
       "description": "Recycled Timber pallets, repaired with new timber boards. 500Kg Capacity ",
       "image": "./src/assets/images/general-site/pallet template.png",
       "link": "#"
     },
     {
       "id": "product-7",
-      "name": "Pallet Type",
-      "size": "1000x1200",
+      "name": "Custom Pallet",
+      "size": "1000x1200mm",
       "weightType": "Industrial",
-      "description": "Example text that will provide a brief description that will allow the site user to then decide whether to expand to more details or not.",
+      "weightCapacity": "2000kg",
+      "description": "Custom designed industrial pallet for heavy-duty applications with reinforced construction.",
       "image": "./src/assets/images/general-site/pallet template.png",
       "link": "#"
     },
     {
       "id": "product-8",
-      "name": "Pallet Type",
-      "size": "800x600",
+      "name": "Euro Pallet",
+      "size": "800x600mm",
       "weightType": "Light Weight",
-      "description": "Example text that will provide a brief description that will allow the site user to then decide whether to expand to more details or not.",
+      "weightCapacity": "400kg",
+      "description": "Standard Euro pallet size, perfect for international shipping and storage solutions.",
       "image": "./src/assets/images/general-site/pallet template.png",
       "link": "#"
     }

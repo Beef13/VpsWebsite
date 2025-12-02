@@ -74,10 +74,9 @@ function createProductCard(product) {
     weightType.className = 'weight-type';
     weightType.textContent = product.weightType;
     
-    // Product description
-    const description = document.createElement('p');
-    description.className = 'p2';
-    description.textContent = product.description;
+    // Product weight capacity
+    const weightCapacity = document.createElement('p');
+    weightCapacity.textContent = product.weightCapacity;
     
     // Chevron icon
     const chevron = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -110,7 +109,7 @@ function createProductCard(product) {
     cardContent.appendChild(name);
     cardContent.appendChild(size);
     cardContent.appendChild(weightType);
-    cardContent.appendChild(description);
+    cardContent.appendChild(weightCapacity);
     cardContent.appendChild(chevron);
     cardContent.appendChild(button);
     
