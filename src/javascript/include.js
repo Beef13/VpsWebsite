@@ -39,6 +39,9 @@ function loadComponent(elementId, url) {
                 setupHeaderMenu();
                 setupNavigation();
             }
+            if (elementId === 'footer') {
+                setupNavigation();
+            }
         })
         .catch(error => {
             console.error(`${elementId} loading error:`, error);
