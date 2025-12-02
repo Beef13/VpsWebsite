@@ -1701,7 +1701,7 @@ footer .footer-container {
 .services-page-wrapper {
     min-height: 100vh;
     padding: 120px 20px 80px 20px;
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
 }
 
 .services-page-container {
@@ -1734,13 +1734,18 @@ footer .footer-container {
     padding: 40px;
     background: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 100%);
     border-radius: 20px;
-    border: 1px solid #E0E0E0;
+    border: 1px solid transparent;
     transition: all 0.3s ease;
 }
 
 .service-detail-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: solid 1px var(--light-grey);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
 }
 
 .service-detail-section h2 {
