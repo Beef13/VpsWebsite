@@ -66,10 +66,25 @@
     text-align: left;
 }
 
+.product-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 7px;
+}
+
+.qbp-card-content p.weight-type {
+    font-weight: 400;
+}
+
+.qbp-card-content p.weight-type .weight-type-bold {
+    font-weight: 600;
+}
+
 .qbp-card-content h3 {
     font-weight: 500;
-    font-size: 25px;
-    color: var(--dark-grey);
+    font-size: 22.5px;
+    color: var(--black);
     margin: 0;
     text-align: left;
 }
@@ -109,8 +124,6 @@
 .qbp-card:hover .qbp-card-content,
 .qbp-card.is-expanded .qbp-card-content {
     height: 220px;
-    box-shadow: 0 -6px 20px -1px rgba(0, 0, 0, 0.1);
-    background-color: #fffdf4;
 }
 
 @media screen and (max-width: 1024px) {
