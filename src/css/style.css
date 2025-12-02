@@ -1137,9 +1137,9 @@ body.modal-open {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 50px;
+    align-self: center;
+    justify-content: space-between;
     width: 100%;
-    max-width: 1255px;
 }
 
 .about-us-left-container {
@@ -1180,8 +1180,9 @@ body.modal-open {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 18px;
-    line-height: 22px;
+    line-height: 0px;
     text-align: center;
+    align-self: center;
     white-space: nowrap;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
