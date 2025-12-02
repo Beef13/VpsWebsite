@@ -1160,38 +1160,41 @@ body.modal-open {
     position: relative;
     width: 50%;
     min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .top-image {
-    position: absolute;
-    top: -50px;
-    left: 0;
+    position: relative;
     z-index: 2;
 }
 
 .top-image img {
-    height: 320px;
-    width: auto;
+    width: 320px;
+    height: 240px;
+    object-fit: cover;
     border-radius: 12px;
     border: solid 3px white;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    object-fit: cover;
+    display: block;
 }
 
 .bottom-image {
     position: absolute;
-    bottom: -80px;
-    right: -50px;
+    bottom: -20px;
+    right: -30px;
     z-index: 1;
 }
 
 .bottom-image img {
-    height: 380px;
-    width: auto;
+    width: 380px;
+    height: 285px;
+    object-fit: cover;
     border-radius: 12px;
     border: solid 3px white;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-    object-fit: cover;
+    display: block;
 }
 
 /* Responsive scaling for about us images as a pair */
