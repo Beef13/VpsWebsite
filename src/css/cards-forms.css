@@ -66,25 +66,10 @@
     text-align: left;
 }
 
-.product-specs {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding-top: 7px;
-}
-
-.qbp-card-content p.weight-type {
-    font-weight: 400;
-}
-
-.qbp-card-content p.weight-type .weight-type-bold {
-    font-weight: 600;
-}
-
 .qbp-card-content h3 {
     font-weight: 500;
-    font-size: 22.5px;
-    color: var(--black);
+    font-size: 25px;
+    color: var(--dark-grey);
     margin: 0;
     text-align: left;
 }

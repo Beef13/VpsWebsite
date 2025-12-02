@@ -80,10 +80,6 @@ function createProductCard(product) {
     const name = document.createElement('h3');
     name.textContent = product.name;
     
-    // Create specs container for size, weight type, and capacity
-    const specsContainer = document.createElement('div');
-    specsContainer.className = 'product-specs';
-    
     // Product size
     const size = document.createElement('p');
     size.textContent = product.size;
@@ -91,31 +87,12 @@ function createProductCard(product) {
     // Product weight type
     const weightType = document.createElement('p');
     weightType.className = 'weight-type';
+    weightType.textContent = product.weightType;
     
-    // Split "Heavy Weight" into "Heavy" (bold) and "Weight" (regular)
-    const weightText = product.weightType;
-    if (weightText.includes('Weight')) {
-        const parts = weightText.split('Weight');
-        const boldPart = document.createElement('span');
-        boldPart.className = 'weight-type-bold';
-        boldPart.textContent = parts[0].trim();
-        
-        const regularPart = document.createTextNode(' Weight');
-        
-        weightType.appendChild(boldPart);
-        weightType.appendChild(regularPart);
-    } else {
-        weightType.textContent = weightText;
-    }
-    
-    // Product weight capacity
-    const weightCapacity = document.createElement('p');
-    weightCapacity.textContent = `Capacity: ${product.weightCapacity}`;
-    
-    // Add specs to container
-    specsContainer.appendChild(size);
-    specsContainer.appendChild(weightType);
-    specsContainer.appendChild(weightCapacity);
+    // Product description
+    const description = document.createElement('p');
+    description.className = 'p2';
+    description.textContent = product.description;
     
     // Chevron icon
     const chevron = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -134,10 +111,10 @@ function createProductCard(product) {
     
     chevron.appendChild(path);
     
-    // More Info button
+    // View More button
     const button = document.createElement('button');
     button.className = 'qbp-button';
-    button.textContent = 'More Info';
+    button.textContent = 'View More';
     if (product.link) {
         button.addEventListener('click', () => {
             window.location.href = product.link;
@@ -146,7 +123,9 @@ function createProductCard(product) {
     
     // Assemble card content
     cardContent.appendChild(name);
-    cardContent.appendChild(specsContainer);
+    cardContent.appendChild(size);
+    cardContent.appendChild(weightType);
+    cardContent.appendChild(description);
     cardContent.appendChild(chevron);
     cardContent.appendChild(button);
     
@@ -159,4 +138,3 @@ function createProductCard(product) {
     
     return container;
 }
-
