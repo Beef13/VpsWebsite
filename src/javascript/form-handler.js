@@ -1,8 +1,9 @@
 // Form Submission Handler for Web3Forms
-// Handles all form submissions with validation, feedback, and error handling
+// Handles all form submissions with validation, feedback, error handling, and analytics tracking
 
 document.addEventListener('DOMContentLoaded', () => {
     setupFormSubmissions();
+    createSuccessOverlay();
 });
 
 function setupFormSubmissions() {
@@ -11,6 +12,64 @@ function setupFormSubmissions() {
     forms.forEach(form => {
         form.addEventListener('submit', handleFormSubmit);
     });
+}
+
+// Create Success Overlay (runs once on page load)
+function createSuccessOverlay() {
+    // Check if overlay already exists
+    if (document.getElementById('successOverlay')) {
+        return;
+    }
+    
+    const overlay = document.createElement('div');
+    overlay.id = 'successOverlay';
+    overlay.className = 'success-overlay';
+    overlay.setAttribute('role', 'alert');
+    overlay.setAttribute('aria-live', 'polite');
+    
+    overlay.innerHTML = `
+        <div class="success-content">
+            <div class="success-checkmark">
+                <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                    <path class="checkmark-path" d="M14 27l7 7 16-16" />
+                </svg>
+            </div>
+            <p class="success-message">Request Received!</p>
+        </div>
+    `;
+    
+    document.body.appendChild(overlay);
+}
+
+// Show Success Overlay with analytics tracking
+function showSuccessOverlay(formType = 'contact') {
+    const overlay = document.getElementById('successOverlay');
+    if (!overlay) return;
+    
+    // Show overlay
+    overlay.classList.add('active');
+    
+    // Track conversion in Google Analytics (if available)
+    if (typeof gtag !== 'undefined') {
+        // Send virtual pageview for conversion tracking
+        gtag('event', 'page_view', {
+            page_title: 'Form Success - ' + formType,
+            page_location: window.location.href + '/form-success',
+            page_path: '/form-success'
+        });
+        
+        // Send form submission event
+        gtag('event', 'form_submit', {
+            event_category: 'Form',
+            event_label: formType,
+            value: 1
+        });
+    }
+    
+    // Auto-hide after 2 seconds
+    setTimeout(() => {
+        overlay.classList.remove('active');
+    }, 2000);
 }
 
 async function handleFormSubmit(event) {
@@ -46,6 +105,12 @@ async function handleFormSubmit(event) {
         const result = await response.json();
         
         if (response.ok && result.success) {
+            // Get form type for analytics tracking
+            const formType = form.getAttribute('data-form-type') || 'contact';
+            
+            // Show success overlay with analytics tracking
+            showSuccessOverlay(formType);
+            
             // Success - turn button green and show "Submitted"
             if (submitButton) {
                 submitButton.classList.add('form-submitted');

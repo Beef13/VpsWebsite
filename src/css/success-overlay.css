@@ -1,0 +1,152 @@
+/* ===================================
+   SUCCESS OVERLAY
+   Shown after successful form submissions
+   =================================== */
+
+.success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.success-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.success-content {
+    text-align: center;
+    transform: scale(0.7);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.success-overlay.active .success-content {
+    transform: scale(1);
+}
+
+/* Animated Checkmark */
+.success-checkmark {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: var(--primary-colour);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: checkmarkPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes checkmarkPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Checkmark Icon (SVG) */
+.success-checkmark svg {
+    width: 50px;
+    height: 50px;
+    stroke: #FFFFFF;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.checkmark-path {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: checkmarkDraw 0.5s ease-out 0.2s forwards;
+}
+
+@keyframes checkmarkDraw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Success Text */
+.success-message {
+    font-size: 28px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin: 0;
+    animation: fadeInUp 0.5s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Circle pulse effect */
+.success-checkmark::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--primary-colour);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    animation: pulse 0.8s ease-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .success-checkmark {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .success-checkmark svg {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .success-message {
+        font-size: 24px;
+    }
+}
+
