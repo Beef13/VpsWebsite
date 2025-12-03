@@ -4,7 +4,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://beef13.github.io/VpsWebsite/sitemap.xml
+Sitemap: https://www.victorianpalletsupply.com.au/sitemap.xml
 
 # Disallow debug files if any
 Disallow: /debug.html
