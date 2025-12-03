@@ -114,6 +114,7 @@
     width: auto;
     max-width: none;
     overflow: hidden;
+    text-decoration: none;
 }
 
 .call-button:hover {

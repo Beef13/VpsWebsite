@@ -54,7 +54,7 @@ async function handleFormSubmit(event) {
             
             form.reset();
             
-            // Close modal if this is the modal form
+            // Close modal if this is a modal form
             if (form.classList.contains('hero-modal-form')) {
                 setTimeout(() => {
                     const modal = document.getElementById('heroFormModal');
@@ -62,6 +62,20 @@ async function handleFormSubmit(event) {
                         modal.classList.remove('is-open');
                         modal.setAttribute('aria-hidden', 'true');
                         document.body.classList.remove('modal-open');
+                    }
+                    // Reset button after modal closes
+                    if (submitButton) {
+                        submitButton.classList.remove('form-submitted');
+                        submitButton.textContent = 'Submit';
+                        submitButton.disabled = false;
+                    }
+                }, 2000);
+            } else if (form.classList.contains('quote-modal-form')) {
+                setTimeout(() => {
+                    const modal = document.getElementById('quoteModal');
+                    if (modal) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
                     }
                     // Reset button after modal closes
                     if (submitButton) {

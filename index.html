@@ -209,38 +209,38 @@
     <!-- About Us Section -->
     <section id="about" class="about-us-section-wrapper">
         <div>
-            <!-- About Us Info Section (LEFT) -->
-            <div class="about-us-left-container">
-                <h2>About Us, Our Story</h2>
-                <p>
-                    With over 30 years of experience, we are a trusted, family-owned business
-                    specializing in high-quality pallet solutions. Our reputation reflects a strong
-                    commitment to customer satisfaction and sustainable practices.<br><br>
-                    
-                    As a family-run company, we treat every customer like one of our own. We take pride
-                    in friendly service and tailored solutions that make every experience simple and
-                    stress-free.<br><br>
-            
-                    We are environmentally conscious, focusing on pallet repair and reuse, and our
-                    heat-treatment process for export pallets is chemical-free and safe for
-                    international shipping.<br><br>
-            
-                    Servicing metro Melbourne and parts of regional Victoria, we offer prompt,
-                    reliable supply at competitive prices to support businesses of all sizes.<br><br>
-            
-                    Whether you need new pallets, second-hand options, or custom designs, we provide
-                    durable, cost-effective solutions backed by exceptional service.
-                </p>
-                <button>View Gallery</button>
-            </div>
-            <!-- About Us Pictures Section (RIGHT)-->
-            <div class="about-us-right-container">
-                <!-- Top Image - Warehouse with wooden crates -->
-                <div class="about-us-image top-image">
+        <!-- About Us Info Section (LEFT) -->
+        <div class="about-us-left-container">
+            <h2>About Us, Our Story</h2>
+            <p>
+                With over 30 years of experience, we are a trusted, family-owned business
+                specializing in high-quality pallet solutions. Our reputation reflects a strong
+                commitment to customer satisfaction and sustainable practices.<br><br>
+                
+                As a family-run company, we treat every customer like one of our own. We take pride
+                in friendly service and tailored solutions that make every experience simple and
+                stress-free.<br><br>
+        
+                We are environmentally conscious, focusing on pallet repair and reuse, and our
+                heat-treatment process for export pallets is chemical-free and safe for
+                international shipping.<br><br>
+        
+                Servicing metro Melbourne and parts of regional Victoria, we offer prompt,
+                reliable supply at competitive prices to support businesses of all sizes.<br><br>
+        
+                Whether you need new pallets, second-hand options, or custom designs, we provide
+                durable, cost-effective solutions backed by exceptional service.
+            </p>
+            <button>View Gallery</button>
+        </div>
+        <!-- About Us Pictures Section (RIGHT)-->
+        <div class="about-us-right-container">
+            <!-- Top Image - Warehouse with wooden crates -->
+            <div class="about-us-image top-image">
                     <img src="./src/assets/images/about us/pallets.png" alt="Warehouse with wooden crates marked EXPORT" loading="lazy">
-                </div>
-                <!-- Bottom Image - Pallets and forklifts (overlapping) -->
-                <div class="about-us-image bottom-image">
+            </div>
+            <!-- Bottom Image - Pallets and forklifts (overlapping) -->
+            <div class="about-us-image bottom-image">
                     <img src="./src/assets/images/about us/front_factory.png" alt="Wooden pallets and warehouse with forklifts" loading="lazy">
                 </div>
             </div>
@@ -377,13 +377,27 @@
                             <input id="contact-email" name="email" type="email" placeholder="Email*" required>
                         </div>
                         <div class="form-field">
-                            <label for="contact-product">Select Product</label>
+                            <label for="contact-product">Select Product / Service</label>
                             <select id="contact-product" name="product">
-                                <option value="">Select Product</option>
-                                <option value="buy-sell">Buy &amp; Sell Second Hand</option>
-                                <option value="custom">Custom Pallets &amp; Crates</option>
-                                <option value="repair">Repair Damaged Pallets</option>
-                                <option value="export">Export Pallets ISPM 15 Certified</option>
+                                <option value="">Select Product / Service</option>
+                                <optgroup label="Products">
+                                    <option value="aus-standard-new-heavy">Australian Standard (New) - Heavy Weight</option>
+                                    <option value="aus-standard-new-medium">Australian Standard (New) - Medium Weight</option>
+                                    <option value="aus-standard-new-light">Australian Standard (New) - Light Weight</option>
+                                    <option value="second-hand-heavy">Second Hand Standard - Heavy Weight</option>
+                                    <option value="second-hand-medium">Second Hand Standard - Medium Weight</option>
+                                    <option value="second-hand-light">Second Hand Standard - Light Weight</option>
+                                    <option value="export-ispm15">Export Pallets ISPM15</option>
+                                    <option value="euro-pallet">Euro Pallet (Used)</option>
+                                    <option value="block-pallet">Block Pallet (Used)</option>
+                                    <option value="non-standard">Non Standard (Used)</option>
+                                </optgroup>
+                                <optgroup label="Services">
+                                    <option value="buy-sell">Buy &amp; Sell Second Hand</option>
+                                    <option value="custom">Custom Pallets &amp; Crates</option>
+                                    <option value="repair">Repair Damaged Pallets</option>
+                                    <option value="export-service">Export Pallets ISPM 15 Certified</option>
+                                </optgroup>
                             </select>
                         </div>
                     </div>

@@ -56,15 +56,15 @@
     <!-- Gallery Page Content -->
     <section class="gallery-page-wrapper">
         <div class="gallery-page-container">
-            <h1>Gallery</h1>
-            <p>Explore our facilities, products, and projects</p>
+            <!-- Section Title -->
+            <div class="section-title-wrapper">
+                <h2>Gallery</h2>
+                <p>Look through our gallery of our facilities, <br> products, and projects</p>
+            </div>
             
-            <!-- Gallery content will go here -->
-            <div class="gallery-grid">
-                <!-- Gallery items will be added here -->
-                <div class="gallery-placeholder">
-                    <p>Gallery content coming soon...</p>
-                </div>
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be loaded dynamically from gallery.json -->
             </div>
         </div>
     </section>
@@ -175,6 +175,7 @@
     <!-- JavaScript -->
     <script src="../javascript/include.js" defer></script>
     <script src="../javascript/form-handler.js" defer></script>
+    <script src="../javascript/gallery-loader.js" defer></script>
 </body>
 </html>
 

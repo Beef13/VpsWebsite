@@ -54,167 +54,92 @@
     </header>
 
     <!-- Products Page Content -->
-    <section class="products-page-wrapper">
-        <div class="products-page-container">
-            <h1>Our Products</h1>
-            <p>Quality pallets for every need</p>
+    <section class="products-page-wrapper-new">
+        <div class="products-page-container-new">
             
-            <!-- Products Grid -->
-            <div class="products-grid">
-                <!-- New Australian Standard Pallets -->
-                <div class="product-category-section">
-                    <h2>Australian Standard (New)</h2>
-                    <div class="product-cards-wrapper">
-                        <!-- Heavy Weight -->
-                        <div class="product-card">
-                            <div class="product-card-badge">New</div>
-                            <h3>Heavy Weight</h3>
-                            <div class="product-specs">
-                                <p class="spec-item"><strong>Size:</strong> 1165x1165mm</p>
-                                <p class="spec-item"><strong>Capacity:</strong> 1500kg</p>
-                            </div>
-                            <p class="product-description">Built with 25mm Thick Pine Timber boards to hold up to 1500Kg Capacity can also be customised for more weight capacity</p>
-                        </div>
-
-                        <!-- Medium Weight -->
-                        <div class="product-card">
-                            <div class="product-card-badge">New</div>
-                            <h3>Medium Weight</h3>
-                            <div class="product-specs">
-                                <p class="spec-item"><strong>Size:</strong> 1165x1165mm</p>
-                                <p class="spec-item"><strong>Capacity:</strong> 1000kg</p>
-                            </div>
-                            <p class="product-description">Built with 17mm Thick Pine Timber boards to hold up to 1000Kg Capacity</p>
-                        </div>
-
-                        <!-- Light Weight -->
-                        <div class="product-card">
-                            <div class="product-card-badge">New</div>
-                            <h3>Light Weight</h3>
-                            <div class="product-specs">
-                                <p class="spec-item"><strong>Size:</strong> 1165x1165mm</p>
-                                <p class="spec-item"><strong>Capacity:</strong> 500kg</p>
-                            </div>
-                            <p class="product-description">Built with 12mm Thick Pine Timber boards to hold up to 500Kg Capacity</p>
+            <!-- 3 Column Layout -->
+            <div class="products-three-column">
+                
+                <!-- Column 1: Product Categories List -->
+                <aside class="products-sidebar">
+                    <h2>Products</h2>
+                    <div class="product-category-list" id="productCategoryList">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </aside>
+                
+                <!-- Column 2: Product Info & Specs -->
+                <div class="product-details">
+                    <div class="product-detail-content" id="productDetailContent">
+                        <div class="product-detail-placeholder">
+                            <p>Select a product from the list to view details</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Second Hand Standard Pallets -->
-                <div class="product-category-section">
-                    <h2>Second Hand Standard</h2>
-                    <div class="product-cards-wrapper">
-                        <!-- Heavy Weight -->
-                        <div class="product-card">
-                            <div class="product-card-badge second-hand">Used</div>
-                            <h3>Heavy Weight</h3>
-                            <div class="product-specs">
-                                <p class="spec-item"><strong>Size:</strong> 1165x1165mm</p>
-                                <p class="spec-item"><strong>Capacity:</strong> 1500kg</p>
-                            </div>
-                            <p class="product-description">Recycled Timber pallets, repaired with new timber boards. 1500Kg Capacity</p>
-                        </div>
-
-                        <!-- Medium Weight -->
-                        <div class="product-card">
-                            <div class="product-card-badge second-hand">Used</div>
-                            <h3>Medium Weight</h3>
-                            <div class="product-specs">
-                                <p class="spec-item"><strong>Size:</strong> 1165x1165mm</p>
-                                <p class="spec-item"><strong>Capacity:</strong> 1000kg</p>
-                            </div>
-                            <p class="product-description">Recycled Timber pallets, repaired with new timber boards. 1000Kg Capacity</p>
-                        </div>
-
-                        <!-- Light Weight -->
-                        <div class="product-card">
-                            <div class="product-card-badge second-hand">Used</div>
-                            <h3>Light Weight</h3>
-                            <div class="product-specs">
-                                <p class="spec-item"><strong>Size:</strong> 1165x1165mm</p>
-                                <p class="spec-item"><strong>Capacity:</strong> 500kg</p>
-                            </div>
-                            <p class="product-description">Recycled Timber pallets, repaired with new timber boards. 500Kg Capacity</p>
-                        </div>
+                
+                <!-- Column 3: Product Images -->
+                <div class="product-images">
+                    <div class="product-image-main" id="productImageMain">
+                        <!-- Main image -->
+                    </div>
+                    <div class="product-image-thumbnails" id="productImageThumbnails">
+                        <!-- Thumbnail images -->
                     </div>
                 </div>
-
-                <!-- Specialty Pallets -->
-                <div class="product-category-section">
-                    <h2>Specialty Pallets</h2>
-                    <div class="product-cards-wrapper">
-                        <!-- Export Pallets ISPM15 -->
-                        <div class="product-card">
-                            <div class="product-card-badge export">Export</div>
-                            <h3>Export Pallets ISPM15</h3>
-                            <div class="product-specs">
-                                <p class="spec-item"><strong>Size:</strong> 1140x1140mm</p>
-                                <p class="spec-item"><strong>Capacity:</strong> 1000kg</p>
-                            </div>
-                            <p class="product-description">Built with 17mm thick pine timber boards. ISPM15 Certified for worldwide shipping. Can be customized to accommodate your business requirements.</p>
-                        </div>
-
-                        <!-- Euro Pallet -->
-                        <div class="product-card">
-                            <div class="product-card-badge second-hand">Used</div>
-                            <h3>Euro Pallet</h3>
-                            <div class="product-specs">
-                                <p class="spec-item"><strong>Size:</strong> 1200x800mm</p>
-                                <p class="spec-item"><strong>Capacity:</strong> 1200kg</p>
-                            </div>
-                            <p class="product-description">Pine Timber Up to 1200Kg capacity</p>
-                        </div>
-
-                        <!-- Block Pallet -->
-                        <div class="product-card">
-                            <div class="product-card-badge second-hand">Used</div>
-                            <h3>Block Pallet</h3>
-                            <div class="product-specs">
-                                <p class="spec-item"><strong>Size:</strong> 1200x1000mm</p>
-                                <p class="spec-item"><strong>Capacity:</strong> 1000kg</p>
-                            </div>
-                            <p class="product-description">Pine Timber 4 way entry pallet up to 1000Kg capacity</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Non Standard Pallets -->
-                <div class="product-category-section">
-                    <h2>Non Standard (Used)</h2>
-                    <div class="product-cards-wrapper">
-                        <!-- 1100x1100 -->
-                        <div class="product-card">
-                            <div class="product-card-badge second-hand">Used</div>
-                            <h3>1100x1100mm</h3>
-                            <div class="product-specs">
-                                <p class="spec-item"><strong>Size:</strong> 1100x1100mm</p>
-                                <p class="spec-item"><strong>Capacity:</strong> 1000kg</p>
-                            </div>
-                            <p class="product-description">Pine Timber 4 Bearer Pallet weight capacity up to 1000Kg Capacity</p>
-                        </div>
-
-                        <!-- 1150x1150 -->
-                        <div class="product-card">
-                            <div class="product-card-badge second-hand">Used</div>
-                            <h3>1150x1150mm</h3>
-                            <div class="product-specs">
-                                <p class="spec-item"><strong>Size:</strong> 1150x1150mm</p>
-                                <p class="spec-item"><strong>Capacity:</strong> 1000kg</p>
-                            </div>
-                            <p class="product-description">Pine Timber Up to 1000Kg Capacity</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Call to Action -->
-            <div class="products-cta">
-                <h2>Need a Custom Solution?</h2>
-                <p>Contact us for custom pallet sizes and specifications</p>
-                <a href="../../index.html#contact" class="cta-button">Get in Touch</a>
+                
             </div>
         </div>
     </section>
+
+    <!-- Quote Modal Popup -->
+    <div class="quote-modal-overlay" id="quoteModal">
+        <div class="quote-modal-content">
+            <button class="quote-modal-close" id="closeQuoteModal" aria-label="Close modal">&times;</button>
+            <div class="quote-modal-inner">
+                <h2>Get a Quote</h2>
+                <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                
+                <form class="quote-modal-form" action="https://api.web3forms.com/submit" method="POST" data-form-type="quote-modal">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="74013ee7-c7ba-4e16-81d2-5e292792fda4">
+                    
+                    <!-- Form Type Identifier -->
+                    <input type="hidden" name="subject" value="Product Enquiry from Victorian Pallet Supply">
+                    <input type="hidden" name="from_name" value="Victorian Pallet Supply - Product Enquiry">
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="modal-name">Name*</label>
+                            <input id="modal-name" name="name" type="text" placeholder="Name*" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="modal-company">Company Name</label>
+                            <input id="modal-company" name="company" type="text" placeholder="Company Name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="modal-phone">Phone Number</label>
+                            <input id="modal-phone" name="phone" type="tel" placeholder="Phone Number">
+                        </div>
+                        <div class="form-field">
+                            <label for="modal-email">Email*</label>
+                            <input id="modal-email" name="email" type="email" placeholder="Email*" required>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="modal-product">Product</label>
+                        <input id="modal-product" name="product" type="text" placeholder="Product" readonly>
+                    </div>
+                    <div class="form-field">
+                        <label for="modal-enquiry">Enquiry*</label>
+                        <textarea id="modal-enquiry" name="enquiry" placeholder="How can we help?" required></textarea>
+                    </div>
+                    <button type="submit" class="quote-modal-submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -322,6 +247,7 @@
     <!-- JavaScript -->
     <script src="../javascript/include.js" defer></script>
     <script src="../javascript/form-handler.js" defer></script>
+    <script src="../javascript/products-page-loader.js" defer></script>
 </body>
 </html>
 

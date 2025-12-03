@@ -125,7 +125,7 @@
 .qbp-card.is-expanded .qbp-card-content {
     height: 220px;
     box-shadow: 0 -6px 20px -1px rgba(0, 0, 0, 0.1);
-    background-color: #fffdf4;
+    background-color: #ffffff;
 }
 
 @media screen and (max-width: 1024px) {
