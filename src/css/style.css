@@ -1566,6 +1566,8 @@ body.modal-open {
         height: 310px;
         overflow: visible;
         cursor: grab;
+        transform: scale(0.8);
+        transform-origin: center;
     }
 
     .qbp-container .qbp-card-image {
@@ -1596,7 +1598,7 @@ body.modal-open {
     .quick-browse-products-wrapper {
         width: 100%;
         padding: 20px 10px 40px;
-        gap: 10px;
+        gap: 0px;
     }
 
     .our-services-section-wrapper {
@@ -1775,14 +1777,78 @@ footer .footer-container {
    ======================================== */
 
 .services-page-wrapper {
-    min-height: 100vh;
-    padding: 120px 20px 80px 20px;
-    /* background-color: #FFFFFF; */
+    height: 500px;
+    padding: 0px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .services-page-container {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+/* Construction Animation */
+.construction-animation {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+    height: 80px;
+}
+
+.construction-cone {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 50px solid #FFA500;
+    position: relative;
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+.construction-cone::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 10px;
+    width: 30px;
+    height: 8px;
+    background: #FFFFFF;
+}
+
+.construction-cone::after {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 25px;
+    width: 30px;
+    height: 8px;
+    background: #FFFFFF;
+}
+
+.construction-cone:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.construction-cone:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.construction-cone:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 .services-page-container h1 {

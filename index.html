@@ -6,7 +6,7 @@
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="./src/css/main.css" as="style">
-    <link rel="preload" href="./src/assets/images/general-site/FORKMAN_FINAL2.png" as="image">
+    <link rel="preload" href="./src/assets/images/general-site/FORKMAN_FINAL_CHRISTMAS.png" as="image">
     
     <!-- Imported CSS -->
     <link rel="stylesheet" href="./src/css/main.css">
@@ -20,12 +20,15 @@
     <title>VPS | Home</title>
 </head>
 <body>
+    <!-- Snowflake Overlay -->
+    <div class="snowflake-container" id="snowflakeContainer"></div>
+    
     <!-- Header -->
     <header>
         <div class="header-container">
             <!-- Logo -->
             <a href="./index.html" class="logo-link" data-page="home">
-                <img src="./src/assets/images/general-site/FORKMAN_FINAL2.png" alt="Logo" width="150" height="50">
+                <img src="./src/assets/images/general-site/FORKMAN_FINAL_CHRISTMAS.png" alt="Logo" width="150" height="50">
             </a>
 
             <button class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -538,5 +541,6 @@
     <script src="./src/javascript/include.js" defer></script>
     <script src="./src/javascript/form-handler.js" defer></script>
     <script src="./src/javascript/products-loader.js" defer></script>
+    <script src="./src/javascript/snowflakes.js" defer></script>
 </body>
 </html>

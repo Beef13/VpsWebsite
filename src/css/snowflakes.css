@@ -1,0 +1,77 @@
+/* ===================================
+   SNOWFLAKE OVERLAY ANIMATION
+   Performance Optimized:
+   - GPU-accelerated transforms (translate3d)
+   - Reduced snowflake count (35 desktop, 25 mobile)
+   - will-change optimization
+   - Respects prefers-reduced-motion
+   =================================== */
+
+.snowflake-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10000;
+    overflow: hidden;
+    contain: layout style paint; /* CSS containment for better performance */
+}
+
+.snowflake {
+    position: absolute;
+    top: 0;
+    color: #FFFFFF;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.8;
+    will-change: transform, opacity;
+    backface-visibility: hidden; /* Performance optimization */
+}
+
+/* Combined fall and sway animation for better performance */
+@keyframes fallAndSway {
+    0% {
+        transform: translate3d(0, -10vh, 0);
+        opacity: 0.8;
+    }
+    25% {
+        transform: translate3d(var(--sway-amount, 30px), 20vh, 0);
+    }
+    50% {
+        transform: translate3d(0, 55vh, 0);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translate3d(calc(var(--sway-amount, 30px) * -0.5), 85vh, 0);
+    }
+    100% {
+        transform: translate3d(0, 110vh, 0);
+        opacity: 0.3;
+    }
+}
+
+/* Different sizes for variety */
+.snowflake.small {
+    font-size: 0.8em;
+}
+
+.snowflake.medium {
+    font-size: 1.2em;
+}
+
+.snowflake.large {
+    font-size: 1.6em;
+}
+
+/* Performance optimization */
+@media (prefers-reduced-motion: reduce) {
+    .snowflake {
+        animation: none;
+    }
+}
+

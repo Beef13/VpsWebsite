@@ -6,7 +6,7 @@
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="../css/main.css" as="style">
-    <link rel="preload" href="../assets/images/general-site/FORKMAN_FINAL2.png" as="image">
+    <link rel="preload" href="../assets/images/general-site/FORKMAN_FINAL_CHRISTMAS.png" as="image">
     
     <!-- Imported CSS -->
     <link rel="stylesheet" href="../css/main.css">
@@ -20,12 +20,15 @@
     <title>VPS | Services</title>
 </head>
 <body>
+    <!-- Snowflake Overlay -->
+    <div class="snowflake-container" id="snowflakeContainer"></div>
+    
     <!-- Header -->
     <header>
         <div class="header-container">
             <!-- Logo -->
             <a href="../../index.html" class="logo-link" data-page="home">
-                <img src="../assets/images/general-site/FORKMAN_FINAL2.png" alt="Logo" width="150" height="50">
+                <img src="../assets/images/general-site/FORKMAN_FINAL_CHRISTMAS.png" alt="Logo" width="150" height="50">
             </a>
 
             <button class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,35 +58,17 @@
 
     <!-- Services Page Content -->
     <section class="services-page-wrapper">
-        <div class="services-page-container">
-            <h1>Our Services</h1>
-            <p>Comprehensive pallet solutions for all your needs</p>
-            
-            <!-- Service content sections will go here -->
-            <div class="services-content">
-                <!-- Buy & Sell Second Hand Section -->
-                <div class="service-detail-section">
-                    <h2>Buy & Sell Second Hand Pallets</h2>
-                    <p>We specialize in quality second-hand pallets, offering sustainable and cost-effective solutions for businesses of all sizes.</p>
+        <div class="services-page-container" style="display: flex; justify-content: center; align-items: center; text-align: center;">
+            <div>
+                <!-- Construction Animation -->
+                <div class="construction-animation">
+                    <div class="construction-cone"></div>
+                    <div class="construction-cone"></div>
+                    <div class="construction-cone"></div>
                 </div>
-
-                <!-- Custom Pallets & Crates Section -->
-                <div class="service-detail-section">
-                    <h2>Custom Pallets & Crates</h2>
-                    <p>Tailored timber packaging solutions designed to meet your specific requirements and dimensions.</p>
-                </div>
-
-                <!-- Repair Damaged Pallets Section -->
-                <div class="service-detail-section">
-                    <h2>Repair Damaged Pallets</h2>
-                    <p>Professional pallet repair services to extend the life of your pallets and reduce replacement costs.</p>
-                </div>
-
-                <!-- Export Pallets Section -->
-                <div class="service-detail-section">
-                    <h2>Export Pallets - ISPM 15 Certified</h2>
-                    <p>Heat-treated export pallets that meet international ISPM 15 standards for safe international shipping.</p>
-                </div>
+                
+                <h1 style="font-size: 48px; margin-bottom: 20px; margin-top: 30px;">Under Construction</h1>
+                <p style="font-size: 20px; color: #666;">This page is currently being built. Please check back soon!</p>
             </div>
         </div>
     </section>
@@ -194,6 +179,7 @@
     <!-- JavaScript -->
     <script src="../javascript/include.js" defer></script>
     <script src="../javascript/form-handler.js" defer></script>
+    <script src="../javascript/snowflakes.js" defer></script>
 </body>
 </html>
 
