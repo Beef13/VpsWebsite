@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function loadProductsPage() {
     try {
-        const response = await fetch('../data/products.json');
+        const response = await fetch('../src/data/products.json');
         const data = await response.json();
         productsData = data.products;
         
@@ -172,7 +172,7 @@ function renderProductImage(product) {
     const isMobile = window.innerWidth <= 992;
     
     // Adjust image path for products page subdirectory
-    const imagePath = product.image.replace('./src/', '../');
+    const imagePath = product.image.replace('./', '../');
     
     // Main image
     imageMain.innerHTML = `

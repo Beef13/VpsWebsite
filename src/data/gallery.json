@@ -2,115 +2,115 @@
   "images": [
     {
       "id": "gallery-1",
-      "src": "../assets/images/gallery-photos/IMG_0159.JPG",
+      "src": "../src/assets/images/gallery-photos/IMG_0159.JPG",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-2",
-      "src": "../assets/images/gallery-photos/IMG_0220.JPG",
+      "src": "../src/assets/images/gallery-photos/IMG_0220.JPG",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-3",
-      "src": "../assets/images/gallery-photos/IMG_2402.JPG",
+      "src": "../src/assets/images/gallery-photos/IMG_2402.JPG",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-4",
-      "src": "../assets/images/gallery-photos/IMG_4301.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_4301.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-5",
-      "src": "../assets/images/gallery-photos/IMG_4593.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_4593.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-6",
-      "src": "../assets/images/gallery-photos/IMG_4594.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_4594.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-7",
-      "src": "../assets/images/gallery-photos/IMG_5179.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_5179.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-8",
-      "src": "../assets/images/gallery-photos/IMG_6589.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_6589.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-9",
-      "src": "../assets/images/gallery-photos/IMG_6815.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_6815.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-10",
-      "src": "../assets/images/gallery-photos/IMG_6816.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_6816.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-11",
-      "src": "../assets/images/gallery-photos/IMG_7103.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_7103.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-12",
-      "src": "../assets/images/gallery-photos/IMG_7104.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_7104.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-13",
-      "src": "../assets/images/gallery-photos/IMG_7140.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_7140.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-14",
-      "src": "../assets/images/gallery-photos/IMG_7141.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_7141.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-15",
-      "src": "../assets/images/gallery-photos/IMG_7476.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_7476.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-16",
-      "src": "../assets/images/gallery-photos/IMG_7552.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_7552.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-17",
-      "src": "../assets/images/gallery-photos/IMG_7725.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_7725.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-18",
-      "src": "../assets/images/gallery-photos/IMG_8505.jpg",
+      "src": "../src/assets/images/gallery-photos/IMG_8505.jpg",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     },
     {
       "id": "gallery-19",
-      "src": "../assets/images/gallery-photos/screenshot-2025-12-03.png",
+      "src": "../src/assets/images/gallery-photos/screenshot-2025-12-03.png",
       "alt": "Victorian Pallet Supply gallery image",
       "caption": ""
     }
