@@ -12,7 +12,8 @@ All technical SEO optimizations have been successfully implemented:
 - ✅ Page titles optimized for search
 - ✅ Image alt text updated with keywords
 - ✅ Canonical URLs added to prevent duplicate content
-- ✅ All changes pushed to GitHub
+- ✅ All URLs updated to custom domain (`www.victorianpalletsupply.com.au`)
+- ✅ All changes pushed to GitHub and deployed
 
 ---
 
@@ -23,22 +24,54 @@ All technical SEO optimizations have been successfully implemented:
 **This is the most important step!**
 
 1. Go to [Google Search Console](https://search.google.com/search-console)
-2. Click "Add Property"
-3. Choose "URL prefix" and enter: `https://beef13.github.io/VpsWebsite/`
-4. Verify ownership using one of these methods:
-   - **HTML file upload** (recommended for GitHub Pages)
-   - **HTML meta tag** (add to `<head>`)
-   - **Google Analytics** (if already set up)
+2. Click "Add Property" (or property dropdown at top-left)
+3. Choose **"URL prefix"** and enter: `https://www.victorianpalletsupply.com.au`
+4. Verify ownership using the **HTML file upload** method:
+   - Select "HTML file"
+   - The verification file `google39e18eed2dec19f7.html` is already uploaded ✅
+   - Click "Verify"
 5. Once verified, submit your sitemap:
    - Go to "Sitemaps" in left menu
    - Enter: `sitemap.xml`
    - Click "Submit"
+   - Status should change from "Fetching..." to "Success" within a few hours
 
-**Verification HTML Tag (if needed):**
-```html
-<meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
+**Important Note:** 
+- Use your **custom domain** property (`www.victorianpalletsupply.com.au`)
+- NOT the GitHub Pages URL (`beef13.github.io/VpsWebsite/`)
+- The sitemap URLs must match the property domain for Google to fetch it successfully
+
+**Sitemap URL (for reference):**
 ```
-Add this to the `<head>` section of `index.html`.
+https://www.victorianpalletsupply.com.au/sitemap.xml
+```
+
+#### Troubleshooting: "Couldn't Fetch" Error
+
+If Google Search Console shows **"Couldn't fetch"** for your sitemap:
+
+**Common Causes & Solutions:**
+
+1. **Wrong Property Domain** ⚠️ MOST COMMON
+   - Problem: Submitting sitemap to GitHub Pages property (`beef13.github.io`) instead of custom domain
+   - Solution: Create a NEW property for `www.victorianpalletsupply.com.au` and submit there
+   
+2. **Domain Mismatch**
+   - Problem: Sitemap URLs don't match the property domain
+   - Solution: Already fixed ✅ (all URLs use `www.victorianpalletsupply.com.au`)
+
+3. **Deployment Delay**
+   - Problem: Changes not yet deployed to GitHub Pages
+   - Solution: Wait 5-10 minutes after pushing to GitHub, then re-submit
+
+4. **Browser/CDN Cache**
+   - Problem: Old sitemap cached
+   - Solution: Test in incognito mode or wait 10-15 minutes for CDN refresh
+
+**To verify sitemap is accessible:**
+Open in browser: `https://www.victorianpalletsupply.com.au/sitemap.xml`
+- Should show XML with 4 URLs
+- All URLs should start with `https://www.victorianpalletsupply.com.au/`
 
 ---
 
@@ -54,7 +87,7 @@ This is critical for local SEO and appearing in Google Maps searches.
    - **Address:** Enter your physical business address
    - **Service areas:** Melbourne, Victoria (add specific suburbs you serve)
    - **Phone:** 0414 987 492
-   - **Website:** https://beef13.github.io/VpsWebsite/
+   - **Website:** https://www.victorianpalletsupply.com.au
    - **Hours:** Mon-Fri 7:00 AM - 5:00 PM (adjust as needed)
 4. Verify your business:
    - Usually by postcard sent to business address
@@ -78,14 +111,19 @@ This is critical for local SEO and appearing in Google Maps searches.
 Verify that Google can properly read your structured data:
 
 1. Go to [Rich Results Test](https://search.google.com/test/rich-results)
-2. Enter your homepage URL: `https://beef13.github.io/VpsWebsite/`
+2. Enter your homepage URL: `https://www.victorianpalletsupply.com.au`
 3. Click "Test URL"
 4. Check for:
    - ✅ LocalBusiness schema detected
    - ✅ No errors or warnings
-5. Repeat for products page to verify Product schema
+5. Repeat for products page: `https://www.victorianpalletsupply.com.au/src/pages/products.html`
+   - Should detect Product schema for all 6 product types
 
 **Alternative:** Use [Schema Markup Validator](https://validator.schema.org/)
+
+**Pages to Test:**
+- Homepage: `https://www.victorianpalletsupply.com.au/`
+- Products: `https://www.victorianpalletsupply.com.au/src/pages/products.html`
 
 ---
 
@@ -212,18 +250,18 @@ Use these tools to measure your site's SEO health:
 
 ## 📝 Additional Notes
 
-### If You Get a Custom Domain
+### Custom Domain Setup
 
-If you move from `beef13.github.io/VpsWebsite/` to a custom domain like `victorianpalletsupply.com.au`:
+✅ **Custom domain is already active:** `www.victorianpalletsupply.com.au`
 
-1. Update all URLs in:
-   - `sitemap.xml`
-   - `robots.txt`
-   - Meta tags in all HTML files (canonical URLs, Open Graph)
-   - Schema markup URLs
-2. Set up 301 redirects from old GitHub Pages URL
-3. Re-verify in Google Search Console
-4. Update Google Business Profile website URL
+All URLs have been updated to use the custom domain:
+- ✅ `sitemap.xml` - All page URLs updated
+- ✅ `robots.txt` - Sitemap reference updated
+- ✅ Meta tags - Canonical URLs, Open Graph, Twitter Cards updated
+- ✅ Schema markup - LocalBusiness and Product URLs updated
+- ✅ All 4 HTML pages (home, products, services, gallery)
+
+**GitHub Pages automatically handles 301 redirects** from `beef13.github.io/VpsWebsite/` to `www.victorianpalletsupply.com.au` via the CNAME file.
 
 ### Schema Markup - Missing Information
 
