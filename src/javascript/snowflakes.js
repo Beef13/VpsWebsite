@@ -1,13 +1,16 @@
 // Snowflake Animation Generator
 // Creates animated snowflakes across the entire website
+// Only displays on desktop (>1024px)
 
 function createSnowflakes() {
     const container = document.getElementById('snowflakeContainer');
     if (!container) return;
     
-    // Reduce count on mobile for better performance
-    const isMobile = window.innerWidth <= 768;
-    const snowflakeCount = isMobile ? 25 : 35; // Reduced from 50
+    // Only create snowflakes on desktop (tablet and mobile disabled)
+    const isDesktop = window.innerWidth > 1024;
+    if (!isDesktop) return; // Exit early for mobile/tablet
+    
+    const snowflakeCount = 35; // Desktop only
     const snowflakeChars = ['❄', '❅', '❆']; // Different snowflake symbols
     
     for (let i = 0; i < snowflakeCount; i++) {
@@ -49,7 +52,7 @@ if (document.readyState === 'loading') {
     createSnowflakes();
 }
 
-// Adjust snowflake count on window resize (debounced for performance)
+// Handle window resize (debounced for performance)
 let resizeTimeout;
 window.addEventListener('resize', function() {
     clearTimeout(resizeTimeout);
@@ -57,13 +60,15 @@ window.addEventListener('resize', function() {
         const container = document.getElementById('snowflakeContainer');
         if (!container) return;
         
-        const currentCount = container.children.length;
-        const isMobile = window.innerWidth <= 768;
-        const targetCount = isMobile ? 25 : 35;
+        const isDesktop = window.innerWidth > 1024;
+        const hasSnowflakes = container.children.length > 0;
         
-        // Only recreate if count needs to change significantly
-        if (Math.abs(currentCount - targetCount) > 5) {
+        // If switched from desktop to mobile/tablet, clear snowflakes
+        if (!isDesktop && hasSnowflakes) {
             container.innerHTML = '';
+        }
+        // If switched from mobile/tablet to desktop, create snowflakes
+        else if (isDesktop && !hasSnowflakes) {
             createSnowflakes();
         }
     }, 500);
