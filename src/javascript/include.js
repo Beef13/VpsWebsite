@@ -409,16 +409,8 @@ function setupMobileHeaderScroll() {
 
 // Fix header asset paths based on current location
 function fixHeaderPaths() {
-    const isInSubdirectory = window.location.pathname.includes('/pages/');
-    
-    // Fix logo path
-    const logoImg = document.querySelector('.header-container img');
-    if (logoImg && isInSubdirectory) {
-        const currentSrc = logoImg.getAttribute('src');
-        if (currentSrc.startsWith('./src/')) {
-            logoImg.setAttribute('src', currentSrc.replace('./src/', '../'));
-        }
-    }
+    // No longer needed - asset paths are now correctly set in each page
+    // This function is kept for backward compatibility but does nothing
 }
 
 // Setup navigation links with correct paths
@@ -426,21 +418,17 @@ function setupNavigation() {
     const navLinks = document.querySelectorAll('[data-page]');
     if (!navLinks.length) return;
     
-    // Detect if we're in a subdirectory
-    const isInSubdirectory = window.location.pathname.includes('/pages/');
-    const pathPrefix = isInSubdirectory ? '../../' : './';
-    
-    // Detect current page
+    // Detect current page from pathname
     const currentPath = window.location.pathname;
     let currentPage = 'home'; // default
     
-    if (currentPath.includes('products.html')) {
+    if (currentPath.includes('/products/') || currentPath.includes('/products')) {
         currentPage = 'products';
-    } else if (currentPath.includes('services.html')) {
+    } else if (currentPath.includes('/services/') || currentPath.includes('/services')) {
         currentPage = 'services';
-    } else if (currentPath.includes('gallery.html')) {
+    } else if (currentPath.includes('/gallery/') || currentPath.includes('/gallery')) {
         currentPage = 'gallery';
-    } else if (currentPath.includes('index.html') || currentPath.endsWith('/')) {
+    } else if (currentPath === '/' || currentPath.includes('index.html')) {
         // Check if we have a hash for about or contact
         if (window.location.hash === '#about') {
             currentPage = 'about';
@@ -451,15 +439,36 @@ function setupNavigation() {
         }
     }
     
-    // Page mapping
-    const pageMap = {
-        'home': 'index.html',
-        'products': 'src/pages/products.html',
-        'services': 'src/pages/services.html',
-        'about': 'index.html#about',
-        'gallery': 'src/pages/gallery.html',
-        'contact': 'index.html#contact'
-    };
+    // Detect if we're on homepage or in a subdirectory
+    const isHomePage = currentPath === '/' || currentPath.endsWith('index.html');
+    const isInProductsDir = currentPath.includes('/products');
+    const isInServicesDir = currentPath.includes('/services');
+    const isInGalleryDir = currentPath.includes('/gallery');
+    
+    // Build page map with clean URLs
+    let pageMap = {};
+    
+    if (isHomePage) {
+        // From homepage
+        pageMap = {
+            'home': './index.html',
+            'products': './products/',
+            'services': './services/',
+            'about': '#about',
+            'gallery': './gallery/',
+            'contact': '#contact'
+        };
+    } else if (isInProductsDir || isInServicesDir || isInGalleryDir) {
+        // From subdirectory pages
+        pageMap = {
+            'home': '../index.html',
+            'products': '../products/',
+            'services': '../services/',
+            'about': '../index.html#about',
+            'gallery': '../gallery/',
+            'contact': '../index.html#contact'
+        };
+    }
     
     navLinks.forEach(link => {
         const page = link.getAttribute('data-page');
@@ -470,20 +479,7 @@ function setupNavigation() {
         }
         
         if (pageMap[page]) {
-            let href = pageMap[page];
-            
-            // Adjust path for subdirectory pages
-            if (isInSubdirectory) {
-                if (href.startsWith('src/pages/')) {
-                    // We're in /pages/ going to another page in /pages/
-                    href = href.replace('src/pages/', './');
-                } else if (href.startsWith('index.html')) {
-                    // We're in /pages/ going to root
-                    href = '../../' + href;
-                }
-            }
-            
-            link.href = href;
+            link.href = pageMap[page];
         }
     });
     
