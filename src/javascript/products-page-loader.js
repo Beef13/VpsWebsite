@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function loadProductsPage() {
     try {
-        const response = await fetch('../src/data/products.json');
+        const response = await fetch('../data/products.json');
         const data = await response.json();
         productsData = data.products;
         
