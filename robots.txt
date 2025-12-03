@@ -1,0 +1,12 @@
+# Victorian Pallet Supply - robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://beef13.github.io/VpsWebsite/sitemap.xml
+
+# Disallow debug files if any
+Disallow: /debug.html
+Disallow: /cache-bust.html
+
