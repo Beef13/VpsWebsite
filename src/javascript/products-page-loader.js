@@ -6,6 +6,7 @@ let currentProduct = null;
 document.addEventListener('DOMContentLoaded', function() {
     loadProductsPage();
     setupModalHandlers();
+    setupBrowseProductsToggle();
 });
 
 async function loadProductsPage() {
@@ -125,6 +126,7 @@ function selectProduct(product, clickedElement) {
 
 function renderProductDetails(product) {
     const detailContent = document.getElementById('productDetailContent');
+    const isMobile = window.innerWidth <= 992;
     
     detailContent.innerHTML = `
         <div class="product-detail-header">
@@ -151,12 +153,12 @@ function renderProductDetails(product) {
             <p>${product.description}</p>
         </div>
         
-        <div class="product-actions">
+        ${!isMobile ? `<div class="product-actions" id="productActionsBtn">
             <button class="btn-enquire" id="openQuoteModalBtn">Get Quote</button>
-        </div>
+        </div>` : ''}
     `;
     
-    // Attach event listener to the button
+    // Attach event listener to the button if it exists
     const openBtn = document.getElementById('openQuoteModalBtn');
     if (openBtn) {
         openBtn.addEventListener('click', openQuoteModal);
@@ -166,6 +168,8 @@ function renderProductDetails(product) {
 function renderProductImage(product) {
     const imageMain = document.getElementById('productImageMain');
     const thumbnails = document.getElementById('productImageThumbnails');
+    const imagesContainer = document.querySelector('.product-images');
+    const isMobile = window.innerWidth <= 992;
     
     // Adjust image path for products page subdirectory
     const imagePath = product.image.replace('./src/', '../');
@@ -189,6 +193,30 @@ function renderProductImage(product) {
             thumb.classList.add('active');
         });
         thumbnails.appendChild(thumb);
+    }
+    
+    // On mobile, add the Get Quote button inside the images section
+    if (isMobile && imagesContainer) {
+        // Remove any existing button first
+        const existingButton = imagesContainer.querySelector('.product-actions');
+        if (existingButton) {
+            existingButton.remove();
+        }
+        
+        // Add button after thumbnails
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'product-actions';
+        buttonContainer.id = 'productActionsBtn';
+        buttonContainer.innerHTML = `
+            <button class="btn-enquire" id="openQuoteModalBtn">Get Quote</button>
+        `;
+        imagesContainer.appendChild(buttonContainer);
+        
+        // Attach event listener
+        const openBtn = document.getElementById('openQuoteModalBtn');
+        if (openBtn) {
+            openBtn.addEventListener('click', openQuoteModal);
+        }
     }
 }
 
@@ -244,4 +272,81 @@ function closeQuoteModal() {
         document.body.style.overflow = ''; // Restore background scrolling
     }
 }
+
+// Browse Products Toggle (Mobile/Tablet)
+function setupBrowseProductsToggle() {
+    const toggleButton = document.getElementById('browseProductsToggle');
+    const sidebar = document.getElementById('productsSidebar');
+    const container = document.querySelector('.products-page-container-new');
+    
+    if (!toggleButton || !sidebar || !container) return;
+    
+    // Open/close sidebar
+    toggleButton.addEventListener('click', function() {
+        const isOpen = sidebar.classList.contains('active');
+        
+        if (isOpen) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
+    });
+    
+    // Close sidebar when clicking outside (on the overlay area)
+    document.addEventListener('click', function(e) {
+        const isOpen = sidebar.classList.contains('active');
+        const clickedInsideSidebar = sidebar.contains(e.target);
+        const clickedToggleButton = toggleButton.contains(e.target);
+        
+        if (isOpen && !clickedInsideSidebar && !clickedToggleButton) {
+            closeSidebar();
+        }
+    });
+    
+    // Close sidebar when pressing Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+            closeSidebar();
+        }
+    });
+    
+    // Close sidebar when a product is selected on mobile
+    const productCategoryList = document.getElementById('productCategoryList');
+    if (productCategoryList) {
+        productCategoryList.addEventListener('click', function(e) {
+            if (e.target.classList.contains('product-item')) {
+                // Check if we're on mobile/tablet
+                if (window.innerWidth <= 992) {
+                    closeSidebar();
+                }
+            }
+        });
+    }
+    
+    function openSidebar() {
+        toggleButton.classList.add('active');
+        sidebar.classList.add('active');
+        container.classList.add('sidebar-open');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    function closeSidebar() {
+        toggleButton.classList.remove('active');
+        sidebar.classList.remove('active');
+        container.classList.remove('sidebar-open');
+        document.body.style.overflow = ''; // Restore background scrolling
+    }
+}
+
+// Handle window resize to re-render button position
+let resizeTimeout;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        if (currentProduct) {
+            renderProductDetails(currentProduct);
+            renderProductImage(currentProduct);
+        }
+    }, 250);
+});
 

@@ -430,6 +430,27 @@ function setupNavigation() {
     const isInSubdirectory = window.location.pathname.includes('/pages/');
     const pathPrefix = isInSubdirectory ? '../../' : './';
     
+    // Detect current page
+    const currentPath = window.location.pathname;
+    let currentPage = 'home'; // default
+    
+    if (currentPath.includes('products.html')) {
+        currentPage = 'products';
+    } else if (currentPath.includes('services.html')) {
+        currentPage = 'services';
+    } else if (currentPath.includes('gallery.html')) {
+        currentPage = 'gallery';
+    } else if (currentPath.includes('index.html') || currentPath.endsWith('/')) {
+        // Check if we have a hash for about or contact
+        if (window.location.hash === '#about') {
+            currentPage = 'about';
+        } else if (window.location.hash === '#contact') {
+            currentPage = 'contact';
+        } else {
+            currentPage = 'home';
+        }
+    }
+    
     // Page mapping
     const pageMap = {
         'home': 'index.html',
@@ -442,6 +463,12 @@ function setupNavigation() {
     
     navLinks.forEach(link => {
         const page = link.getAttribute('data-page');
+        
+        // Apply active class to current page
+        if (page === currentPage && link.classList.contains('nav-button')) {
+            link.classList.add('active');
+        }
+        
         if (pageMap[page]) {
             let href = pageMap[page];
             
@@ -458,5 +485,21 @@ function setupNavigation() {
             
             link.href = href;
         }
+    });
+    
+    // Update active state on hash change (for about/contact sections)
+    window.addEventListener('hashchange', () => {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const page = link.getAttribute('data-page');
+            
+            if (window.location.hash === '#about' && page === 'about') {
+                link.classList.add('active');
+            } else if (window.location.hash === '#contact' && page === 'contact') {
+                link.classList.add('active');
+            } else if (!window.location.hash && page === 'home') {
+                link.classList.add('active');
+            }
+        });
     });
 }
