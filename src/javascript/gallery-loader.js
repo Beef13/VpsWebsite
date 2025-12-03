@@ -16,8 +16,8 @@ async function loadGalleryImages() {
 
     try {
         // Determine correct path based on page location
-        const isInPagesFolder = window.location.pathname.includes('/pages/');
-        const jsonPath = isInPagesFolder ? '../data/gallery.json' : './src/data/gallery.json';
+        const isInSubdirectory = window.location.pathname.includes('/gallery/');
+        const jsonPath = isInSubdirectory ? '../src/data/gallery.json' : './src/data/gallery.json';
         
         const response = await fetch(jsonPath);
         const data = await response.json();
