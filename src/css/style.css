@@ -435,6 +435,20 @@ body.modal-open {
     overflow: hidden;
 }
 
+/* Hero Modal Mobile Fixes */
+@media screen and (max-width: 768px) {
+    .hero-form-modal {
+        align-items: flex-start;
+        overflow-y: auto;
+        padding: 20px 10px;
+    }
+    
+    .hero-form-modal__content {
+        margin: auto;
+        max-height: none;
+    }
+}
+
 .hero-bottom {
     display: flex;
     flex-direction: row;
@@ -2048,6 +2062,23 @@ footer .footer-container {
 }
 
 @media screen and (max-width: 768px) {
+    .gallery-lightbox {
+        padding: 20px 0;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+    
+    .lightbox-content {
+        max-height: none;
+        margin: auto;
+        padding: 60px 0 40px 0;
+    }
+    
+    .lightbox-image {
+        max-height: none;
+        max-width: 90vw;
+    }
+    
     .lightbox-arrow {
         width: 45px;
         height: 45px;
@@ -2065,11 +2096,16 @@ footer .footer-container {
         top: 15px;
         right: 20px;
         font-size: 40px;
+        position: fixed;
     }
 
     .lightbox-arrow svg {
         width: 30px;
         height: 30px;
+    }
+    
+    .lightbox-counter {
+        position: fixed;
     }
 }
 
@@ -3152,6 +3188,18 @@ footer .footer-container {
 
 /* Mobile Responsive */
 @media screen and (max-width: 768px) {
+    .quote-modal-overlay {
+        padding: 20px 0;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+    
+    .quote-modal-content {
+        max-height: none;
+        width: 95%;
+        margin: auto;
+    }
+    
     .quote-modal-inner {
         padding: 40px 25px 30px 25px;
     }
