@@ -7,19 +7,19 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.victorianpalletsupply.com.au/src/pages/products.html</loc>
+    <loc>https://www.victorianpalletsupply.com.au/products/</loc>
     <lastmod>2025-12-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.victorianpalletsupply.com.au/src/pages/services.html</loc>
+    <loc>https://www.victorianpalletsupply.com.au/services/</loc>
     <lastmod>2025-12-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.victorianpalletsupply.com.au/src/pages/gallery.html</loc>
+    <loc>https://www.victorianpalletsupply.com.au/gallery/</loc>
     <lastmod>2025-12-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
