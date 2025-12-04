@@ -55,13 +55,13 @@ Professional website for Victorian Pallet Supply - Melbourne's trusted pallet su
 | **Page Weight** | ~10MB | ⚠️ With image optimization |
 
 ### Optimizations Applied
-- ✅ Service Worker (PWA caching)
 - ✅ Resource hints (preconnect, prefetch, preload)
 - ✅ Lazy loading (images, background images)
 - ✅ Font optimization (async loading)
 - ✅ Deferred JavaScript
-- ✅ Browser caching headers
+- ✅ Browser caching headers (.htaccess)
 - ✅ GZIP/Brotli compression
+- ✅ Direct CSS loading (eliminated FOUC)
 - ⚠️ Image optimization (see docs)
 
 **📖 Full details**: See [PERFORMANCE_OPTIMIZATIONS.md](docs/PERFORMANCE_OPTIMIZATIONS.md)
