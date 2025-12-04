@@ -21,12 +21,47 @@ async function loadProductsPage() {
         // Render category list
         renderCategoryList(groupedProducts);
         
-        // Auto-select first product after a short delay to ensure DOM is ready
+        // Check for product ID in URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('product');
+        
+        // Auto-select product after a short delay to ensure DOM is ready
         if (productsData.length > 0) {
             setTimeout(() => {
-                const firstProductItem = document.querySelector('.product-item');
-                if (firstProductItem) {
-                    selectProduct(productsData[0], firstProductItem);
+                let productToSelect = productsData[0];
+                let elementToSelect = document.querySelector('.product-item');
+                
+                // If product ID is specified in URL, find and select that product
+                if (productId) {
+                    const targetProduct = productsData.find(p => p.id === productId);
+                    if (targetProduct) {
+                        productToSelect = targetProduct;
+                        // Find the corresponding DOM element
+                        const allProductItems = document.querySelectorAll('.product-item');
+                        allProductItems.forEach(item => {
+                            // Check if this item's text matches the product's weight type or size
+                            const itemText = item.textContent.trim();
+                            const matchesWeight = itemText === targetProduct.weightType;
+                            const matchesSize = itemText === targetProduct.size;
+                            
+                            if (matchesWeight || matchesSize) {
+                                // Verify this is the right product by checking parent category
+                                const categoryHeader = item.closest('.category-section')?.querySelector('.category-header');
+                                if (categoryHeader && categoryHeader.textContent === targetProduct.name) {
+                                    elementToSelect = item;
+                                }
+                            }
+                        });
+                    }
+                }
+                
+                if (elementToSelect) {
+                    selectProduct(productToSelect, elementToSelect);
+                    
+                    // Scroll the selected product into view if it was from URL
+                    if (productId) {
+                        elementToSelect.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
                 }
             }, 100);
         }

@@ -10,8 +10,12 @@ async function loadProducts() {
     if (!container) return;
 
     try {
+        // Determine correct path based on page location
+        const isInSubfolder = window.location.pathname.includes('/home/');
+        const jsonPath = isInSubfolder ? '../src/data/products.json' : './src/data/products.json';
+        
         // Fetch products data
-        const response = await fetch('./src/data/products.json');
+        const response = await fetch(jsonPath);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -49,7 +53,11 @@ function createProductCard(product) {
     // Create card image
     const cardImage = document.createElement('div');
     cardImage.className = 'qbp-card-image';
-    cardImage.setAttribute('data-bg', product.image);
+    
+    // Adjust image path for home folder
+    const isInSubfolder = window.location.pathname.includes('/home/');
+    const imagePath = isInSubfolder ? product.image.replace('./', '../') : product.image;
+    cardImage.setAttribute('data-bg', imagePath);
     // Use Intersection Observer for lazy loading background images
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries) => {
@@ -68,7 +76,9 @@ function createProductCard(product) {
     } else {
         // Fallback for browsers without Intersection Observer
         if (product.image) {
-            cardImage.style.backgroundImage = `url('${product.image}')`;
+            const isInSubfolder = window.location.pathname.includes('/home/');
+            const imagePath = isInSubfolder ? product.image.replace('./', '../') : product.image;
+            cardImage.style.backgroundImage = `url('${imagePath}')`;
         }
     }
     
@@ -138,11 +148,13 @@ function createProductCard(product) {
     const button = document.createElement('button');
     button.className = 'qbp-button';
     button.textContent = 'More Info';
-    if (product.link) {
-        button.addEventListener('click', () => {
-            window.location.href = product.link;
-        });
-    }
+    
+    // Navigate to products page with specific product selected
+    button.addEventListener('click', () => {
+        const isInSubfolder = window.location.pathname.includes('/home/');
+        const productsPath = isInSubfolder ? '../products/' : './products/';
+        window.location.href = `${productsPath}?product=${product.id}`;
+    });
     
     // Assemble card content
     cardContent.appendChild(name);

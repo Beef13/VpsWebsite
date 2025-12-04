@@ -16,16 +16,35 @@
     overflow: visible;
     box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: linear-gradient(180deg, #EBEBEB 0%, #F0EEEE 100%);
+    /* background: linear-gradient(180deg, #EBEBEB 0%, #F0EEEE 100%); */
+    background: linear-gradient(180deg, #ffffff 0%, #dddddd 100%);
     cursor: grab;
-    will-change: transform, box-shadow;
-    transform: translateZ(0);
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: auto;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.quick-browse-products-wrapper.dragging .qbp-card {
+    transition: none;
+    pointer-events: none;
+}
+
+.qbp-card.dragging {
+    cursor: grabbing;
+    pointer-events: none;
 }
 
 .qbp-card-image {
     background-image: url("../assets/images/general-site/pallet template.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 110%;
     background-position: center;
     width: 290px;
     height: 169px;
@@ -33,6 +52,8 @@
     transition: filter 0.2s ease-in-out;
     cursor: grab;
     will-change: filter, transform;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .qbp-card-content {
@@ -43,6 +64,8 @@
     align-items: left;
     height: 128px;
     bottom: -1px;
+    user-select: none;
+    -webkit-user-select: none;
     left: -1px;
     right: -1px;
     width: calc(100% + 2px);

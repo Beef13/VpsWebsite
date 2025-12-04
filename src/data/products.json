@@ -7,7 +7,7 @@
       "weightType": "Heavy Weight",
       "weightCapacity": "1500kg",
       "description": "Built with 25mm Thick Pine Timber boards to hold up to 1500Kg Capacity can also be customised for more weight capacity",
-      "image": "./src/assets/images/general-site/pallet template.png",
+      "image": "./src/assets/Pallet_Thumbnails/HEAVY_STD_NEW.png",
       "link": "#"
     },
     {
@@ -17,7 +17,7 @@
       "weightType": "Medium Weight",
       "weightCapacity": "1000kg",
       "description": "Built with 17mm Thick Pine Timber boards to hold up to 1000Kg Capacity",
-      "image": "./src/assets/images/general-site/pallet template.png",
+      "image": "./src/assets/Pallet_Thumbnails/MEDIUM_STD_NEW.png",
       "link": "#"
     },
     {
@@ -27,7 +27,7 @@
       "weightType": "Light Weight",
       "weightCapacity": "500kg",
       "description": "Built with 12mm Thick Pine Timber boards to hold up to 500Kg Capacity",
-      "image": "./src/assets/images/general-site/pallet template.png",
+      "image": "./src/assets/Pallet_Thumbnails/LIGHT_STD_NEW.png",
       "link": "#"
     },
     {
@@ -37,7 +37,7 @@
       "weightType": "Heavy Weight",
       "weightCapacity": "1500kg",
       "description": "Recycled Timber pallets, repaired with new timber boards. 1500Kg Capacity",
-      "image": "./src/assets/images/general-site/pallet template.png",
+      "image": "./src/assets/Pallet_Thumbnails/HEAVY_STD_USED.png",
       "link": "#"
     },
     {
@@ -47,7 +47,7 @@
       "weightType": "Medium Weight",
       "weightCapacity": "1000kg",
       "description": "Recycled Timber pallets, repaired with new timber boards. 1000Kg Capacity",
-      "image": "./src/assets/images/general-site/pallet template.png",
+      "image": "./src/assets/Pallet_Thumbnails/MEDIUM_LIGHT_STD_USED.png",
       "link": "#"
     },
     {
@@ -57,7 +57,7 @@
       "weightType": "Light Weight",
       "weightCapacity": "500kg",
       "description": "Recycled Timber pallets, repaired with new timber boards. 500Kg Capacity ",
-      "image": "./src/assets/images/general-site/pallet template.png",
+      "image": "./src/assets/Pallet_Thumbnails/MEDIUM_LIGHT_STD_USED.png",
       "link": "#"
     },
     {
@@ -67,7 +67,7 @@
       "weightType": "Medium Weight",
       "weightCapacity": "1000kg",
       "description": "Built with 17mm thick pine timber boards to hold up to 1000Kg Capacity Can also be customized to accommodate your business requirements. All our export Pallets are manufactured in our warehouse and are ISPM15 Certified. These pallets are designed and built to be used in containers for world wide shipping.",
-      "image": "./src/assets/images/general-site/pallet template.png",
+      "image": "./src/assets/Pallet_Thumbnails/EXPORT.png",
       "link": "#"
     },
     {
@@ -77,37 +77,37 @@
       "weightType": "Light Weight",
       "weightCapacity": "1200kg",
       "description": "Pine Timber Up to 1200Kg capacity",
-      "image": "./src/assets/images/general-site/pallet template.png",
+      "image": "./src/assets/Pallet_Thumbnails/EUR_USED.png",
       "link": "#"
     },
     {
-      "id": "product-8",
+      "id": "product-9",
       "name": "Block Pallet (Used)",
       "size": "1200x100mm",
       "weightType": "Light Weight",
       "weightCapacity": "100kg",
       "description": "Pine Timber 4 way entry pallet up to 1000Kg capacity",
-      "image": "./src/assets/images/general-site/pallet template.png",
+      "image": "./src/assets/Pallet_Thumbnails/BLOCK_USED.png",
       "link": "#"
     },
     {
-      "id": "product-8",
+      "id": "product-10",
       "name": "Non Standard (Used)",
       "size": "1100x1100mm",
       "weightType": "Medium Weight",
       "weightCapacity": "1000kg",
       "description": "Pine Timber 4 Bearer Pallet weight capacity up to 1000Kg Capacity",
-      "image": "./src/assets/images/general-site/pallet template.png",
+      "image": "./src/assets/Pallet_Thumbnails/MEDIUM_NONSTD_USED_1100.png",
       "link": "#"
     },
     {
-      "id": "product-8",
+      "id": "product-11",
       "name": "Non Standard (Used)",
       "size": "1150x1150mm",
       "weightType": "Medium Weight",
       "weightCapacity": "1000kg",
       "description": "Pine Timber Up to 1000Kg Capacity",
-      "image": "./src/assets/images/general-site/pallet template.png",
+      "image": "./src/assets/Pallet_Thumbnails/MEDIUM_NONSTD_USED_1150.png",
       "link": "#"
     }
   ]

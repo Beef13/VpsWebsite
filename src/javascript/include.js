@@ -58,6 +58,229 @@ function setupQuickBrowseNavigation() {
     // Set cursor styles
     leftArrow.style.cursor = 'pointer';
     rightArrow.style.cursor = 'pointer';
+    
+    // Setup drag-to-scroll functionality
+    setupDragToScroll(productsWrapper);
+}
+
+// Ultra-smooth drag-to-scroll functionality for quick browse products
+function setupDragToScroll(container) {
+    if (!container) return;
+    
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let lastX;
+    let velocityTracker = [];
+    let animationID;
+    let momentumID;
+    let hasMoved = false;
+    
+    // Mouse down event - start dragging
+    container.addEventListener('mousedown', (e) => {
+        // Don't start drag if clicking on a button
+        if (e.target.closest('.qbp-button')) return;
+        
+        isDown = true;
+        hasMoved = false;
+        container.style.cursor = 'grabbing';
+        container.classList.add('dragging');
+        
+        startX = e.pageX;
+        lastX = startX;
+        scrollLeft = container.scrollLeft;
+        velocityTracker = [];
+        
+        // Cancel any ongoing animations
+        cancelAnimations();
+        
+        // Prevent default to avoid text selection
+        e.preventDefault();
+    });
+    
+    // Mouse leave event - stop dragging
+    container.addEventListener('mouseleave', () => {
+        if (isDown) {
+            isDown = false;
+            container.style.cursor = 'grab';
+            container.classList.remove('dragging');
+            applyMomentum();
+        }
+    });
+    
+    // Mouse up event - stop dragging
+    container.addEventListener('mouseup', (e) => {
+        if (isDown) {
+            isDown = false;
+            container.style.cursor = 'grab';
+            container.classList.remove('dragging');
+            
+            // Prevent click events if user dragged
+            if (hasMoved) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Set a flag to prevent immediate clicks
+                container.dataset.justDragged = 'true';
+                setTimeout(() => {
+                    delete container.dataset.justDragged;
+                }, 100);
+            }
+            
+            applyMomentum();
+        }
+    });
+    
+    // Mouse move event - perform dragging with RAF for smoothness
+    container.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        
+        e.preventDefault();
+        
+        const currentX = e.pageX;
+        const diff = currentX - lastX;
+        
+        // Track if user actually moved (more than 3px threshold)
+        if (Math.abs(currentX - startX) > 3) {
+            hasMoved = true;
+        }
+        
+        // Store velocity samples (last 5 frames for smooth average)
+        velocityTracker.push({
+            time: Date.now(),
+            value: diff
+        });
+        
+        // Keep only recent samples
+        if (velocityTracker.length > 5) {
+            velocityTracker.shift();
+        }
+        
+        lastX = currentX;
+        
+        // Use RAF for buttery smooth scrolling
+        if (!animationID) {
+            animationID = requestAnimationFrame(() => {
+                container.scrollLeft -= diff * 1.2; // Smooth multiplier
+                animationID = null;
+            });
+        }
+    });
+    
+    // Touch support for mobile
+    let touchStartX;
+    let touchScrollLeft;
+    let lastTouchX;
+    
+    container.addEventListener('touchstart', (e) => {
+        if (e.target.closest('.qbp-button')) return;
+        
+        isDown = true;
+        hasMoved = false;
+        touchStartX = e.touches[0].pageX;
+        lastTouchX = touchStartX;
+        touchScrollLeft = container.scrollLeft;
+        velocityTracker = [];
+        cancelAnimations();
+    }, { passive: true });
+    
+    container.addEventListener('touchend', () => {
+        isDown = false;
+        applyMomentum();
+    });
+    
+    container.addEventListener('touchmove', (e) => {
+        if (!isDown) return;
+        
+        const currentX = e.touches[0].pageX;
+        const diff = currentX - lastTouchX;
+        
+        if (Math.abs(currentX - touchStartX) > 3) {
+            hasMoved = true;
+        }
+        
+        velocityTracker.push({
+            time: Date.now(),
+            value: diff
+        });
+        
+        if (velocityTracker.length > 5) {
+            velocityTracker.shift();
+        }
+        
+        lastTouchX = currentX;
+        
+        if (!animationID) {
+            animationID = requestAnimationFrame(() => {
+                container.scrollLeft -= diff * 1.2;
+                animationID = null;
+            });
+        }
+    }, { passive: true });
+    
+    // Calculate smooth velocity from samples
+    function getAverageVelocity() {
+        if (velocityTracker.length < 2) return 0;
+        
+        // Filter recent samples (within last 50ms)
+        const now = Date.now();
+        const recentSamples = velocityTracker.filter(s => now - s.time < 50);
+        
+        if (recentSamples.length === 0) return 0;
+        
+        // Calculate weighted average (more recent = more weight)
+        let totalWeight = 0;
+        let weightedSum = 0;
+        
+        recentSamples.forEach((sample, index) => {
+            const weight = index + 1; // Linear weight increase
+            weightedSum += sample.value * weight;
+            totalWeight += weight;
+        });
+        
+        return weightedSum / totalWeight;
+    }
+    
+    // Apply momentum scrolling with easing
+    function applyMomentum() {
+        cancelAnimations();
+        
+        let velocity = getAverageVelocity() * -8; // Amplify for natural feel
+        
+        // Only apply momentum if velocity is significant
+        if (Math.abs(velocity) < 1) return;
+        
+        function momentumLoop() {
+            // Smooth deceleration
+            velocity *= 0.94; // Higher = smoother, slower stop
+            
+            // Apply scroll
+            container.scrollLeft += velocity;
+            
+            // Continue if still moving significantly
+            if (Math.abs(velocity) > 0.3) {
+                momentumID = requestAnimationFrame(momentumLoop);
+            } else {
+                momentumID = null;
+            }
+        }
+        
+        momentumID = requestAnimationFrame(momentumLoop);
+    }
+    
+    function cancelAnimations() {
+        if (animationID) {
+            cancelAnimationFrame(animationID);
+            animationID = null;
+        }
+        if (momentumID) {
+            cancelAnimationFrame(momentumID);
+            momentumID = null;
+        }
+    }
+    
+    // Set initial cursor
+    container.style.cursor = 'grab';
 }
 
 
@@ -305,6 +528,10 @@ function setupQuickBrowseCardExpansion() {
     const handleCardClick = (event) => {
         if (!coarsePointerQuery.matches) return;
         if (event.target.closest('.qbp-button')) return;
+        
+        // Prevent expansion if user just dragged the container
+        const container = document.querySelector('.quick-browse-products-wrapper');
+        if (container && container.dataset.justDragged === 'true') return;
 
         const card = event.currentTarget;
         const shouldExpand = !card.classList.contains('is-expanded');

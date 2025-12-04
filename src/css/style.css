@@ -1076,13 +1076,35 @@ body.modal-open {
     padding-bottom: 40px;
     padding-top: 30px;
 
-    overflow-x: auto;
+    overflow-x: scroll;
     overflow-y: visible;
     /* Scroll bar */
     scrollbar-width: none;       /* Firefox */
     -ms-overflow-style: none;    /* Internet Explorer 10+ */
     -webkit-overflow-scrolling: touch;
-    touch-action: manipulation;
+    touch-action: pan-x;
+    
+    /* Ultra-smooth dragging */
+    cursor: grab;
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+    will-change: scroll-position;
+    
+    /* GPU acceleration */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.quick-browse-products-wrapper.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+}
+
+.quick-browse-products-wrapper.dragging .qbp-card {
+    pointer-events: none;
+    transition: none;
 }
 
 /* Scroll bar edit */
@@ -1097,10 +1119,17 @@ body.modal-open {
     height: 377px;
     overflow: visible;
     cursor: grab;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform;
 }
 
 .qbp-container:hover {
     cursor: grab;
+}
+
+.quick-browse-products-wrapper.dragging .qbp-container {
+    will-change: auto;
 }
 
 .quick-browse-bottom {
@@ -1777,7 +1806,7 @@ footer .footer-container {
    ======================================== */
 
 .services-page-wrapper {
-    height: 500px;
+    height: 80vh;
     padding: 0px;
     background-color: #ffffff;
     display: flex;
@@ -2195,7 +2224,7 @@ footer .footer-container {
    ======================================== */
 
 .products-page-wrapper-new {
-    height: calc(100vh - 90px);
+    height: 90vh;
     padding: 40px 80px 0 80px;
     background: #FFFFFF;
     overflow: hidden;
@@ -2209,10 +2238,12 @@ footer .footer-container {
 
 .products-three-column {
     display: grid;
-    grid-template-columns: 280px 1fr 450px;
+    grid-template-columns: 280px .8fr .8fr;
     gap: 0;
     height: 670px;
     border: none;
+    max-width: 1700px;
+    margin: 0 auto;
 }
 
 /* Browse Products Toggle Button (Mobile/Tablet Only) */
@@ -2388,7 +2419,7 @@ footer .footer-container {
 }
 
 .product-item.active {
-    color: #000000;
+    color: var(--green);
     font-weight: 600;
 }
 
@@ -2524,7 +2555,7 @@ footer .footer-container {
 /* Column 3: Product Images */
 .product-images {
     padding: 0px 30px;
-    height: 100%;
+    height: 120%;
     overflow-y: auto;
     
     /* Firefox */
@@ -2603,6 +2634,11 @@ footer .footer-container {
 
 .product-thumbnail.active {
     border-color: var(--green);
+}
+
+/* Hide Get Quote button in images section on desktop - only show on mobile/tablet */
+.product-images .product-actions {
+    display: none;
 }
 
 /* Mobile Responsive */
@@ -2735,6 +2771,7 @@ footer .footer-container {
     
     /* Get Quote Button - Inside images section on mobile */
     .product-images .product-actions {
+        display: block;
         margin-top: 25px;
         padding: 0;
         text-align: center;
