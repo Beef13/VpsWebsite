@@ -1,12 +1,29 @@
 # Victorian Pallet Supply - robots.txt
+# Updated: December 4, 2025
 
 User-agent: *
 Allow: /
+Disallow: /debug.html
+Disallow: /cache-bust.html
+
+# Allow crawling of CSS, JS, and images for better page rendering
+Allow: /src/css/
+Allow: /src/javascript/
+Allow: /src/assets/
+
+# Crawl-delay (optional, helps prevent server overload)
+# Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://www.victorianpalletsupply.com.au/sitemap.xml
 
-# Disallow debug files if any
-Disallow: /debug.html
-Disallow: /cache-bust.html
+# Additional search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
 
