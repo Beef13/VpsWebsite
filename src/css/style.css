@@ -2299,7 +2299,7 @@ footer .footer-container {
 .products-sidebar {
     padding: 0px 30px 40px 30px;
     border-right: 1px solid #E0E0E0;
-    height: 100%;
+    height: 105%;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -2398,6 +2398,12 @@ footer .footer-container {
     margin-bottom: 12px;
     padding-bottom: 8px;
     border-bottom: 1px solid #E0E0E0;
+    transition: color 0.2s ease;
+}
+
+/* Turn category header green when one of its products is selected */
+.category-section:has(.product-item.active) .category-header {
+    color: var(--green);
 }
 
 .product-list {
@@ -2427,7 +2433,7 @@ footer .footer-container {
 .product-details {
     padding: 0px 50px;
     border-right: 1px solid #E0E0E0;
-    height: 100%;
+    height: 105%;
     overflow-y: auto;
     
     /* Firefox */
