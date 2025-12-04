@@ -85,7 +85,7 @@
       "name": "Block Pallet (Used)",
       "size": "1200x100mm",
       "weightType": "Light Weight",
-      "weightCapacity": "100kg",
+      "weightCapacity": "1000kg",
       "description": "Pine Timber 4 way entry pallet up to 1000Kg capacity",
       "image": "./src/assets/Pallet_Thumbnails/BLOCK_USED.png",
       "link": "#"
