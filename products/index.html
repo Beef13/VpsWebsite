@@ -29,16 +29,25 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.victorianpalletsupply.com.au/products/">
 
+    <!-- DNS Prefetch for External Resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://api.web3forms.com">
+    
+    <!-- Preconnect to Critical External Domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <!-- Preload Critical Assets -->
     <link rel="preload" href="../src/css/main.css" as="style">
     <link rel="preload" href="../src/assets/images/general-site/FORKMAN_FINAL_CHRISTMAS.png" as="image">
+    <link rel="preload" href="../src/javascript/include.js" as="script">
+    <link rel="preload" href="../src/data/products.json" as="fetch" crossorigin>
     
     <!-- Imported CSS -->
     <link rel="stylesheet" href="../src/css/main.css">
     
     <!-- Imported Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap&font-display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap&font-display=swap" rel="stylesheet"></noscript>
 
@@ -456,6 +465,7 @@
     </footer>
     
     <!-- JavaScript -->
+    <script src="../src/javascript/sw-register.js" defer></script>
     <script src="../src/javascript/include.js" defer></script>
     <script src="../src/javascript/form-handler.js" defer></script>
     <script src="../src/javascript/products-page-loader.js" defer></script>

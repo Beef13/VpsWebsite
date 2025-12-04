@@ -5,6 +5,8 @@
 /* Smooth scroll behavior for anchor links */
 
 body {
+    /* Placeholder color while image loads */
+    background-color: #1a3a1f;
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
         url("../assets/images/general-site/forrest1.jpg");
@@ -13,6 +15,9 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     padding-top: 70px; /* Account for fixed header height */
+    /* Performance optimization */
+    will-change: auto;
+    backface-visibility: hidden;
 }
 
 /* Mobile and Tablet-specific forest background fix */
