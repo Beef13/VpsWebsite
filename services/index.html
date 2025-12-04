@@ -39,12 +39,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Preload Critical Assets -->
-    <link rel="preload" href="../src/css/main.css" as="style">
+    <link rel="preload" href="../src/css/variables.css" as="style">
+    <link rel="preload" href="../src/css/reset.css" as="style">
+    <link rel="preload" href="../src/css/style.css" as="style">
     <link rel="preload" href="../src/assets/images/general-site/FORKMAN_FINAL_CHRISTMAS.png" as="image">
     <link rel="preload" href="../src/javascript/include.js" as="script">
     
-    <!-- Imported CSS -->
-    <link rel="stylesheet" href="../src/css/main.css">
+    <!-- CSS - Load directly (no @import) to prevent FOUC -->
+    <link rel="stylesheet" href="../src/css/variables.css">
+    <link rel="stylesheet" href="../src/css/reset.css">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../src/css/header.css">
+    <link rel="stylesheet" href="../src/css/footer.css">
+    <link rel="stylesheet" href="../src/css/cards-forms.css">
+    <link rel="stylesheet" href="../src/css/anchors.css">
+    <link rel="stylesheet" href="../src/css/snowflakes.css">
+    <link rel="stylesheet" href="../src/css/success-overlay.css">
     
     <!-- Imported Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap&font-display=swap" rel="stylesheet" media="print" onload="this.media='all'">
